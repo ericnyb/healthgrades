@@ -272,8 +272,6 @@ public class AppUtility {
     private static int getLastFilterInDataProvider(ActionBarActivity actionBarActivity) {
         //getAllFilters returns an unmodifiable collection - we put it in new list.
 
-        //Right now this return value isn't being used.
-        int defaultIfWeCantUseLastFilter=0;
 
         List<HealthDataFilter> allFilters = new ArrayList<>(new HealthDataRestaurants().getAllFilters());
 
@@ -282,9 +280,21 @@ public class AppUtility {
         //We need to make sure it wasn't one that they have decided they want hidden
         Set<String> userHideFilterChoices = PreferenceUtility.getUserHideFilterChoices();
 
-        String lastSavedFilterName = PreferenceUtility.getDefaultSharedPreferenceStrings(AppConstant.LAST_FILTER_NAME, "");
+        String lastSavedFilterName = PreferenceUtility.getDefaultSharedPreferenceStrings(AppConstant.LAST_FILTER_NAME, "n/a");
+
+        //No filter was ever saved - we need to set default - we will use Manhattan
+        if (lastSavedFilterName.equals("n/a")){
+            for (int i = 0; i <allFilters.size() ; i++) {
+                if (allFilters.get(i).getFilterName().equals("MANHATTAN")){
+                    return i;
+                }
+            }
+        }
 
         if (AppConstant.DEBUG) Log.i(className+">","last filter:"+lastSavedFilterName);
+
+        //Right now this return value isn't being used.
+        int defaultIfWeCantUseLastFilter=0;
 
         //Last filter saved is subsequently hidden by user
         if (userHideFilterChoices!=null && userHideFilterChoices.contains(lastSavedFilterName)){
@@ -303,6 +313,7 @@ public class AppUtility {
                 return position;
             }
         }
+        //Probably should never get here.
         return defaultIfWeCantUseLastFilter;
     }
 
