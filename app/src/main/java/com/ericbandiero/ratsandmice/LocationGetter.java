@@ -1,10 +1,12 @@
 package com.ericbandiero.ratsandmice;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Location;
@@ -13,9 +15,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.ericbandiero.librarymain.UtilsShared;
 import com.ericbandiero.ratsandmice.activities.DataViewerActivity;
 
 import java.util.Calendar;
@@ -31,6 +36,9 @@ public class LocationGetter {
 
     public static final String MOVING = "moving";
 
+    public static int PERMISSION_FINE_REQUEST_CODE=5;
+
+
     private static LocationListener locationListener;
     private static Context context;
     private static LocationManager locationManager;
@@ -41,6 +49,9 @@ public class LocationGetter {
     private static final int MAX_NUMBER_OF_ADDRESS = 5;
 
     private static String bestProvider;
+
+    private static String PERMISSION_MESSAGE="Location permission needs to be granted. You can go into Device settings->App->This app-> and Permissions";
+    private static String PERMISSION_TITLE="Location Permission Required";
 
 
     private static boolean isLocationEnabled() {
@@ -76,7 +87,15 @@ public class LocationGetter {
 
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
-       //Location is not enabled - we do nothing unless user turns it on.
+        int i = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+        if (i== PackageManager.PERMISSION_DENIED){
+            UtilsShared.AlertMessageSimple(context,PERMISSION_TITLE,PERMISSION_MESSAGE);
+            return false;
+        }
+
+
+
+        //Location is not enabled - we do nothing unless user turns it on.
         if (!isLocationEnabled()) {
             showNoLocationDialog();
             return false;
@@ -192,8 +211,15 @@ public class LocationGetter {
                 if (AppConstant.DEBUG) Log.d(new Object() {
                 }.getClass().getEnclosingClass() + ">", "Start request time:" + Calendar.getInstance().getTime().toString());
                 //Just get one update - we don't want to keep asking
-                locationManager.requestSingleUpdate(bestProvider, locationListener, null);
-                Looper.loop();
+
+                int i = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+                if (i== PackageManager.PERMISSION_DENIED){
+                    UtilsShared.AlertMessageSimple(context,PERMISSION_TITLE,PERMISSION_MESSAGE);
+                }
+                else{
+                    locationManager.requestSingleUpdate(bestProvider, locationListener, null);
+                    Looper.loop();
+                }
                 //  locationManager.requestLocationUpdates(bestProvider, 0, 0, locationListener);
             }
         };
