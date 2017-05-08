@@ -50,7 +50,7 @@ public class LocationGetter {
 
     private static String bestProvider;
 
-    private static String PERMISSION_MESSAGE="Location permission needs to be granted. You can go into Device settings->App->This app-> and Permissions";
+    private static String PERMISSION_MESSAGE="Location permission needs to be granted to use the filter 'Current Zip Code'. You can go into Device settings->App->This app-> and Permissions";
     private static String PERMISSION_TITLE="Location Permission Required";
 
 
