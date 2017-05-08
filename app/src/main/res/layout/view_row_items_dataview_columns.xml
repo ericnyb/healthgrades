@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp">
+
+
+    <TextView android:id="@+id/txt_dba"
+        style="@style/Base_TextView_Items.style_header"
+        android:layout_weight="1.75"
+        android:singleLine="true"
+        android:ellipsize="end"
+      />
+
+    <TextView
+        style="@style/Base_TextView_Items.style_header"
+        android:id="@+id/txt_ins_date"
+        android:layout_weight=".60"
+        android:text="Inspection"
+        />
+
+    <TextView
+        style="@style/Base_TextView_Items.style_header"
+        android:id="@+id/txt_score"
+        android:layout_weight=".55"
+        android:text="59"
+        android:gravity="end"
+        android:layout_marginRight="15sp"
+        android:layout_marginLeft="-25sp"
+        />
+
+    <TextView
+        style="@style/Base_TextView_Items.style_header"
+        android:id="@+id/txt_grade"
+        android:layout_weight="1"
+        android:text="A"
+       />
+</LinearLayout>

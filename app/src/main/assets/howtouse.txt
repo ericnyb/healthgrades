@@ -1,0 +1,46 @@
+This app can be used as a search tool or a reports runner. The reports are created within the app using the raw data provided by the NYC DOHMH (Department of Health and Mental Hygiene).
+If you are primarily interested in using this as a search tool, you can make the search page the default start page.
+On the home screen menu go into settings - you will find the option there.
+
+The app lets you:
+
+Search for a restaurant by name, cuisine, address or phone number.
+
+Run a report on aggregate data. Some reports are:
+    Get list of establishments closed by the DOHMH.
+    Get restaurants based on grades, scores, and violations.
+    Find new restaurants.
+
+See all violations on record for any restaurant.
+    When using search or running a report, if you tap the restaurant result you are interested in, you will get to the detail screen.
+    This screen will show you each inspection by date. By tapping on the inspection date row you will see each violation.
+    Critical violations are shown in red text.
+
+Create your own reports.
+    Go into the Violation Reports section on the home screen  and choose "Create your own violation report".
+    A screen will show up listing all possible violations to get data for.
+    You can select a single or multiple violations to include in the report.
+    Run the report.
+    Choose the menu option 'Save Report'
+    That report will then be available on the User Saved Reports section.
+    Note: The filter used to re-run that report is the current filter, not the one in effect when the reports was created.
+
+Create your own filter.
+    From the home screen menu choose 'Filter - create new filter'
+    Give the filter a name.
+    Enter the zip codes for the filter. Separate the zip codes bu=y using a comma.
+    Example of zip code filter: 10021,10022,10023
+
+Hide filters:
+    If you don't want some filters to be visible, you can hide them.
+    From the home page menu choose 'Filter - Hide/Show/Delete'
+    Check filters you want to see.
+    Un-check ones you want to hide.
+    You can delete a filter that you created - long press the filter.
+
+Create a favorites list.
+    When you are in the inspection screen you can choose the 'Add to Favorites' option.
+    Those favorites can be accessed from the Favorite Restaurants section on the home screen.
+    You can delete a favorite by long pressing its name.
+
+

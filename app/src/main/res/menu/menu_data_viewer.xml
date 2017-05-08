@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ericbandiero.ratsandmice.activities.DataViewerActivity">
+
+      <item android:id="@+id/sort"
+        android:title="@string/sort"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/save_report"
+        android:title="@string/save_report"
+        android:orderInCategory="110"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/dataview_color_key"
+        android:title="@string/dataview_color_key"
+        android:orderInCategory="120"
+        app:showAsAction="never" />
+
+</menu>

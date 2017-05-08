@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="contact_feedback_help_html">
+    <![CDATA[
+It would be great to hear from you - feedback is appreciated! <br/><br/>
+If you have a problem with this app please, let me know.
+You can use the link below to send an email.
+]]>
+</string>
+</resources>

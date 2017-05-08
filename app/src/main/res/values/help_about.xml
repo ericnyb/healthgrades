@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="about_help_html">
+    <![CDATA[
+<p>
+This app can be used to <br/>
+1) Look up a specific restaurant\'s grades and violations history.<br/>
+2) Search for a restaurant by name, cuisine, address or phone number.*<br/>
+3) Run reports showing various aspects about the data.<br/><br/>
+*If you are primarily interested in using this as a search tool, you can make the search screen the default
+by going into the setting option in the home screen menu.<br/>
+</p>
+This application looks up restaurant grade information and generates reports provided by the NYC Department of Health and Mental Hygiene(DOHMH).
+That agency is responsible for inspecting eating establishments and providing a letter grade to them.<br/>
+Here is a link to their grading pdf document:<br/><br/>
+ <a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/how-we-score-grade.pdf">Dept of Health and Mental Hygiene - How We Score</a>
+]]>
+</string>
+</resources>

@@ -1,0 +1,2 @@
+This application can be used as a simple look-up tool. Go to search and you can find the restaurant you are interested in.
+Besides searching, this application provides a set of built in reports. You can also build your own reports.

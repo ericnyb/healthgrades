@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/activity_dataview">
+
+
+    <!--Holds the report description and record count-->
+    <TextView
+        android:text="@string/txt_main_header"
+        android:id="@+id/textheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Brown" />
+
+    <!--We don't really use this one that much!-->
+    <TextView
+        android:id="@+id/textmainlabels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textheader"
+        android:textColor="@color/Black"
+        android:visibility="gone"/>
+</merge>

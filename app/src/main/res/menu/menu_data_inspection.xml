@@ -1,0 +1,45 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ericbandiero.ratsandmice.activities.InspectionActivity">
+
+    <!--<item-->
+        <!--android:id="@+id/action_home"-->
+        <!--android:title="Home"-->
+        <!--android:orderInCategory="100"-->
+        <!--app:showAsAction="never" />-->
+
+        <item android:id="@+id/context_map_it"
+            android:title="Map"
+            app:showAsAction="always"
+            android:orderInCategory="80"/>
+        <item android:id="@+id/context_phone_it"
+            android:title="Phone"
+            app:showAsAction="always"
+            android:orderInCategory="90"/>
+
+    <!--android:icon="@drawable/abc_btn_rating_star_off_mtrl_alpha"-->
+
+    <item android:id="@+id/save_favorite_restaurant"
+        android:title="@string/save_favorite_restaurant"
+        android:icon="@drawable/abc_btn_rating_star_on_mtrl_alpha"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/gut_feeling_color_key"
+        android:title="@string/m_gut_color_key"
+        android:orderInCategory="110"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/gut_help"
+        android:title="@string/m_help_gut_feeling"
+        android:orderInCategory="181"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/symbols_help"
+        android:title="@string/m_symbols_feeling"
+        android:orderInCategory="185"
+        app:showAsAction="never" />
+
+</menu>
+    <!--android:icon="@drawable/abc_btn_rating_star_on_mtrl_alpha"-->

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="help_mission_html">
+ <![CDATA[
+<p><b>
+<font color=\'red\'>Mission Statement</font>
+</b>
+<p>
+The bottom line this: <b>A posted \'A\' grade may not mean what you think it does. See below for explanation.</b>
+</p>
+<p>
+The Grade system established by the Department of Health and Mental Hygiene (DOHMH) has much to recommend it.
+Their web site explains how grades are determined. A link is provided in the \'Useful Links\' help.
+They require eating establishments to post a letter grade - either an A, B, C, or a \'Grade Pending\' sign. Potential customers
+can take this grade into account when deciding if they want to eat there. Unfortunately, things aren\'t so straight forward.
+<br/>
+Some basics:<>br/><>br/>
+Each visit results in a score - the higher the score the worse things were.<br/><br/>
+Not every visit results in a grade being issued.<br/><br/>
+Violations can be critical or non-critical.<br/><br/>
+
+This is from the DOHMH website \'How We Grade\' document - the red font was added by me for emphasis.<br>
+<p>
+Two types of inspections result in a letter grade: initial
+inspections for which the restaurant earns an A and re-
+inspections that result in an A, B or C.
+<font color=\'red\'>A restaurant has two chances to earn an A in every inspection
+cycle. If it doesn\'t earn an A on the first inspection, it\'’s
+scored but
+ungraded. An inspector goes back to the restaurant
+unannounced, typically within a month, to inspect it again
+and the re-inspection is graded.</font> If the grade is a B or C, the
+restaurant will receive a grade card and a grade pending card. It
+can post either card until it has an opportunity to be heard at
+the Office of Administrative Trials and Hearings Health
+Tribunal.
+</p>
+===============================<br/>
+From the above text in red font it means that:<br/>
+ <b>The grade sign of A may still be shown, even if the last visit resulted in a C level score.</b> The reason for that is when you get an A grade
+  you get a bit of a pass on the next visit. If you don\'t get an A score on that next visit (usually a year later), that visit is deemed \'ungraded\',
+  and they will come back within a month or so to re-inspect. <b>In the meantime, you can still keep that A sign up until that re-inspection.
+  <b>So for a month you can think you are eating in an A establishment, but the score was actually in the C range.</b> Even
+   after the re-inspection, a restaurant can post the \'Grade Pending\' sign</b>
+
+
+ <p>
+ This app also tries to clear up some of the following myths:<br/>
+  <b>a) Having rats or mice should shut a place down, shouldn\'t it?</b> <br/>
+  The truth is that for rats and mice, that isn\'t always the case, nor should it be.
+  Evidence of rodents where there is not access to food may not warrant a closure. It may not even result in a C grade.<br/>
+  <b>b) That grade sign always reflects the latest score, doesn\'t it?</b><br/>
+ As outlined above, the posted grade may not really reflect that latest inspection.
+<br/>
+</p>
+ ]]>
+
+ </string>
+</resources>

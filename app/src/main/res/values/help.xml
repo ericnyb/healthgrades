@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="help_help_html">
+ <![CDATA[
+
+<b>What scores mean:<br/></b><br/>
+A score between 0-13 is an "A"<br/>
+A score between 14-27 is a "B"<br/>
+A score between 28+ is a "C"<br/><br/>
+
+<b>Sorting</b><br/>
+There are two ways to sort.<br/>
+1) In results screen, press the SORT menu item. This preference is used for most subsequent reports.<br/>
+2) Click one of the column headings. This sort order is not used in subsequent reports.
+</p>
+
+<p>
+<b>See all violations for a restaurant</b><br/>
+    When in results screen, if you tap the restaurant, you will get to the detail screen.
+    This screen will show you each inspection by date. By tapping on the inspection date row you will see each violation.
+    Critical violations are shown in red text.
+</p>
+<P>
+    <b>Create your own reports</b><br/>
+    Go into the Violation Reports section on the home screen  and choose Create Your Own Violation Report.<br/>
+    Select a single or multiple violations to include in the report.<br/>
+    Run the report.<br/>
+    The menu has a Save Report option<br/>
+    That report will then be available on the My Saved Reports section.<br/>
+    Note: The filter used to re-run that report is the <b>current filter</b>, not the one in effect when the reports was created.<br/>
+</p>
+
+<P>
+    <b>Create violation watchlist</b><br/>
+    When you run a violation report, the detail screen puts an * next to the inspection where that occurred .<br/>
+    You can create a violation that always gets marked in the detail screen.<br/>
+    On home screen menu select Violation Watchlist.<br/>
+    Select violations you want to watch for.<br/>
+    Those will now be marked with an X. When you tap on the inspection date row the watched violation will have a light blue background. <br/>
+</p>
+
+<P>
+    <b>Create your own filter</b><br/>
+    From the home screen menu choose Filter - create new filter.<br/>
+    Give the filter a name.<br/>
+    Enter the zip codes for the filter. Separate the zip codes buy using a comma.<br/>
+    Example of zip code filter: 10021,10022,10023<br/>
+</p>
+<p>
+    <b>Hide filters</b><br/>
+    If you don\'t want some filters to be visible, you can hide them.<br/>
+    From the home page menu choose Filter\\Hide\\Show\\Delete<br/>
+    Check filters you want to see.<br/>
+    Un-check ones you want to hide.<br/>
+</p>
+<p>
+    <b>Delete a filter</b><br/>
+    Long press the filter.<br/>
+    Note: Built in filters cannot be deleted, only hidden.<br/>
+</p>
+
+<p>
+    <b>Use Current Zip Code Filter</b><br/>
+    This filter uses Location services on your device to find the current zip code<br/>
+    To use this you must have Locations turned on.<br/>
+    If you don\'t want Location to be on, and you know your current zip code, you can create a filter with just one zip code, and use that.<br/>
+</p>
+
+<p>
+    <b>Create a favorites list</b><br/>
+    When you are in the detail screen you can choose the Add to Favorites option.<br/>
+    Those favorites can be accessed from the Favorite Restaurants section on the home screen.<br/>
+    You can delete a favorite by choosing Remove from Favorites in the detail screen.<br/>
+ </p>
+ ]]>
+ </string>
+
+    <!--<p>-->
+        <!--<b>Run a report on aggregate data Some reports are:</b><br/>-->
+        <!--Get list of establishments closed by the DOHMH.<br/>-->
+        <!--Get restaurants based on grades, scores, and violations.<br/>-->
+        <!--Find new restaurants.<br/>-->
+    <!--</p>-->
+
+</resources>

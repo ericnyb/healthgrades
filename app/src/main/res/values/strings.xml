@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Eatery Health Grades NYC</string>
+    <string name="txt_main_header">""</string>
+    <string name="txt_main_labels">"Labels</string>
+    <string name="progess_dialog">"Setting the table...</string>
+    <string name="sort">Sort</string>
+    <string name="title_activity_data_viewer">Report Results</string>
+
+
+    <!--Report selection-->
+    <string name="textview_main_getlatest">Latest Inspection Scores</string>
+    <string name="textview_main_getnew">New Restaurants</string>
+    <string name="textview_main_gethighestscorein_year">Worst Scores This Year</string>
+    <string name="textview_main_closed_within_last_year">Closed By DOHMH Within Last Year</string>
+    <string name="textview_main_closed_on_last_inspection">Closed by DOHMH On Last Inspection</string>
+    <string name="textview_main_no_sign_posted_this_year">No Grade Sign Posted This Year</string>
+    <string name="textview_main_grade_a">Grade A - Never Received Less Than an A</string>
+    <string name="textview_ratsandmice">Rats and Mice in Last Year</string>
+
+
+    <string-array
+        name="report_items">
+        <item>Latest Inspection Scores</item>
+        <item>New Restaurants</item>
+        <item>Worst Scores This Year</item>
+        <item>Closed By DOHMH Within Last Year</item>
+        <item>Closed by DOHMH On Last Inspection</item>
+        <item>No Grade Sign Posted This Year</item>
+        <item>Grade A - Never Received Less Than an A</item>
+        <item>Rats and Mice in Last Year</item>
+    </string-array>
+
+
+    <!--Menus  Not using helpactivity-->
+    <string name="m_action_settings">Settings</string>
+    <string name="m_pick_sort">Sort by:</string>
+    <string name="m_filter">Filter - Hide/Show/Delete</string>
+    <string name="m_filter_add">Filter - Create new filter</string>
+    <string name="m_violation_menu_cancel">Cancel</string>
+    <string name="m_gut_color_key">Gut Feeling Color Key</string>
+
+    <!--Menus help files-->
+    <string name="m_help">Help</string>
+    <string name="m_help_gut_feeling">Gut Feeling</string>
+    <string name="m_help_overview">Help Overview</string>
+    <string name="m_search_help">How to Search</string>
+    <string name="m_links_help">Useful Links</string>
+    <string name="m_about_help">About</string>
+    <string name="m_disclaimer_help">Disclaimers</string>
+    <string name="m_contact_feedback_help">Contact and Feedback</string>
+
+    <string-array
+        name="sort_items">
+        <item>Name - A-Z</item>
+        <item>Name - Z-A</item>
+        <item>Score - Best to Worst</item>
+        <item>Score - Worst to Best</item>
+        <item>Inspection Date - Most recent</item>
+        <item>Inspection Date - Oldest</item>
+        <item>Zip Code</item>
+        <item>Zip Code Desc</item>
+        <item>Borough - A-Z</item>
+        <item>Borough - Z-A</item>
+        <item>Grade</item>
+        <item>None</item>
+    </string-array>
+    <string name="title_activity_filter">FilterActivity</string>
+    <string name="title_activity_inspection_detail">Details</string>
+
+    <string-array name="search_fields">
+        <item>NAME</item>
+        <item>BUILDING #</item>
+        <item>STREET NAME</item>
+        <item>ZIP CODE</item>
+        <item>PHONE #</item>
+        <item>CUISINE</item>
+    </string-array>
+
+    <!--<item>VIOLATION</item>-->
+
+    <!--Report descriptions-->
+    <string name="report_desc_rats">Cited for evidence of rats or mice</string>
+    <string name="report_desc_grade_a">Grade A</string>
+    <string name="report_desc_worst_scores">Worst scores this year</string>
+    <string name="report_desc_failed_to_post_sign">Failed to post sign</string>
+    <string name="report_desc_closed">Was closed by the DOHMH</string>
+    <string name="report_desc_new_restaurants">New places</string>
+
+
+
+    <!--Gut feeling keys-->
+    <string name="gut_ok">OK</string>
+    <string name="gut_maybe">Maybe</string>
+    <string name="gut_no">No</string>
+    <string name="gut_feeling_color_key">Gut Feeling Color Codes</string>
+
+    <!--Detail data activity-->
+    <string name="txt_detail_header">GUT FEELING</string>
+    <string name="title_activity_expand">ExpandActivity</string>
+
+
+    <string name="hello_world">Hello world!</string>
+
+    <!--Used to make an inspection row when we use iMarkable interface-->
+    <string name="mark">!</string>
+    <string name="title_activity_search">Find Restaurants</string>
+
+    <!--Search -->
+    <string name="checkBoxFilterRespect">"Respect filter "</string>
+    <string name="search_menu_title">Search</string>
+    <string name="search_hint">Search for restaurants</string>
+    <string name="search_title">Search Data</string>
+
+
+    <!--Preferences-->
+    <string name="title_activity_settings">Settings Screen</string>
+
+    <!--<string name="pref_start_screen_key">start_screen</string>-->
+
+    <string name="pref_key_search_screen">start_screen</string>
+    <string name="pref_start_screen">Set SEARCH as default screen</string>
+    <string name="pref_start_screen_summary">You can have the search screen as the start-up screen. This
+    is great if you don\'t care about reports but just want to use search.</string>
+
+    <string name="pref_key_phone_dial">phone_dial_on_press</string>
+    <string name="pref_phone_dial">Press phone # to call</string>
+    <string name="pref_phone_dial_summary">You can call when you press the restaurant\'s phone number</string>
+
+    <!--General strings-->
+    <string name="title_activity_violations">Violations</string>
+    <string name="Closed">closed by dohmh</string>
+    <string name="save_report">Save Report</string>
+    <string name="save_favorite_restaurant">Add to favorites</string>
+
+    <string name="filter_cancel">Cancel</string>
+    <string name="violation_flagger">Violation Watchlist</string>
+    <string name="separator">---------------------------------------------------</string>
+    <string name="result_term">Records:</string>
+    <string name="sort_by_field">Sort by field</string>
+    <string name="sort_by_cuisines_field">Sort by cuisine</string>
+    <string name="sort_by_value">Sort by Value</string>
+    <string name="sort_by_cuisines_value">Sort by Total</string>
+
+    <!--Save a custom report-->
+    <string name="save_report_text">Enter a report name:</string>
+    <string name="enter_zip_codes">Enter zip codes separated by commas:</string>
+
+    <string name="title_activity_help">Help</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="dataview_color_key">Color Key</string>
+    <string name="c_level_score">Grade C Level Score</string>
+    <string name="color_key_closed_on_last_inspection">Closed By The DOHMH on Inspection</string>
+    <string name="search_help">Help</string>
+
+    <string name="open_location_settings">Open Location Setting</string>
+    <string name="gps_network_not_enabled">Location is not enabled.</string>
+    <string name="Cancel">Cancel</string>
+    <string name="title_activity_test_activity1">TestActivity1</string>
+    <string name="dataset_ressults_name">" --- Records:"</string>
+
+    <string name="Version">Version:</string>
+    <string name="Email">eric@onpointephoto.com</string>
+    <string name="m_mission_help">Mission</string>
+    <string name="m_features">Features</string>
+    <string name="m_symbols_feeling">Symbols</string>
+
+
+</resources>

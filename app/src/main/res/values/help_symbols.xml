@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="help_symbols_html">
+ <![CDATA[
+A <b>*</b> shows where searched for violations occurred.<br/>
+An X shows where your watchlist violations occurred.<br/>
+ ]]>
+ </string>
+</resources>

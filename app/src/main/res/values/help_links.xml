@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="links_help_html">
+  <![CDATA[
+  <b>Detailed information about the grading system can be downloaded here:</b><br/>
+   <a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/how-we-score-grade.pdf">Dept of Health and Mental Hygiene - How We Score</a><br/><br/>
+   <b>More info about the inspection cycle can be downloaded here:</b><br/>
+   <a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/inspection-cycle-overview.pdf">More about inspections</a><br/><br/>
+   <b>This is a link to where my apps are:</b><br/>
+   <a href="https://play.google.com/store/apps/developer?id=Eric+Bandiero&hl=en">My Apps</a>
+
+    ]]>
+</string>
+</resources>

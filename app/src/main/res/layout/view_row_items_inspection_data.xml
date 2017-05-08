@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Row layout for inspection header information-->
+
+    <LinearLayout
+        android:id="@+id/linerTop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        >
+        <!--android:background="@color/Aquamarine"-->
+    <TextView
+        android:id="@+id/textViewInspectionDate"
+        android:layout_height="match_parent"
+        android:textColor="@color/Black"
+        android:layout_width="0dp"
+        android:layout_weight=".20"
+        android:gravity="left"
+        android:text="New Text"
+        />
+
+    <TextView
+        android:id="@+id/textViewInspectionScore"
+        android:layout_height="match_parent"
+        android:textColor="@color/Black"
+        android:layout_width="0dp"
+        android:layout_weight=".15"
+        android:gravity="end"
+        android:text="New Text"
+         />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".10"/>
+    <TextView
+        android:id="@+id/textViewInspectionGrade"
+        android:layout_height="match_parent"
+        android:textColor="@color/Black"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:layout_weight=".45"
+        android:text="New Text"
+         />
+
+        <TextView
+            android:id="@+id/textViewInspectionMark"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_width="0dp"
+            android:layout_weight=".10"
+            android:textColor="@color/Red"
+            android:visibility="invisible"
+            android:text="@string/mark"
+            />
+
+        <!--<ImageView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight=".10"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:scaleType="center"-->
+            <!--android:layout_marginLeft="1dp"-->
+            <!--android:layout_marginTop="1dp"-->
+            <!--android:backgroundTintMode=""-->
+
+            <!--android:src="@drawable/abc_btn_check_to_on_mtrl_015"-->
+            <!--android:id="@+id/imageView1"/>-->
+
+    </LinearLayout>
+</LinearLayout>

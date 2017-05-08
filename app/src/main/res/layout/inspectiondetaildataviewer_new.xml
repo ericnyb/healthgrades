@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--This is for showing inspection data-->
+
+    <!--Shows header text - Inspection history-->
+    <TextView
+        android:id="@+id/inspection_header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Black"
+        />
+
+    <!--Shows column header-->
+    <!--<ListView-->
+        <!--android:id="@+id/ListViewInpsectionHeader"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+         <!--/>-->
+
+
+    <!--Holds the actual inspection data as header and violations as child-->
+    <ExpandableListView
+        android:id="@+id/lvExpColumns"
+        android:divider="@color/Blue"
+        android:dividerHeight="1px"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        />
+
+    <!--Holds the actual inspection data as header and violations as child-->
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:divider="@color/Blue"
+        android:dividerHeight="1px"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        />
+
+</LinearLayout>

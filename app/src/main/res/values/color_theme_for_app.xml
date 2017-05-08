@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--All our activity screens will have this color-->
+    <color name="app_layout_back_color">#B0E0E6</color>
+
+    <!--Critical violations-->
+    <color name="app_color_violation_not_critical_textcolor">@color/Black</color>
+    <color name="app_color_violation_critical_textcolor">@color/Red</color>
+
+    <color name="app_color_violation_user_marked_backcolor">@color/Bisque</color>
+    <color name="app_color_violation_report_code_backcolor">@color/LightCyan</color>
+
+    <!--Gut feeling-->
+    <color name="app_color_gut_ok">@color/PaleGreen</color>
+    <color name="app_color_gut_maybe">@color/yellow</color>
+    <color name="app_color_gut_no">@color/Red</color>
+    <color name="app_color_gut_no_text_color">@color/White</color>
+    <color name="app_color_gut_default_text_color">@color/Black</color>
+
+    <!--Colors for inspection row columns-->
+    <color name="app_color_inspection_text_color">@color/Black</color>
+
+    <!--For detail data C score-->
+    <color name="app_color_C_Score">@color/LightPink</color>
+
+    <!--For detail data closed-->
+    <color name="app_color_closed">@color/Orange</color>
+
+    <!--Detail views-->
+    <color name="app_color_column_header_back">@color/LightGrey</color>
+
+    <!--Spinner filter color-->
+    <color name="app_color_spinner_filter_selected_item">@color/Red</color>
+
+    <!--Favorites icon color-->
+    <color name="app_color_favorite_is_true">@color/Pink</color>
+    <color name="app_color_favorite_is_false">@color/White</color>
+</resources>

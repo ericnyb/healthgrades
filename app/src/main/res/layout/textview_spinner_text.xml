@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textViewMainReportTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Reports filtered by:"
+    android:textSize="16sp"
+    android:textColor="@color/Black"
+    android:layout_gravity="left"
+    tools:showIn="@layout/activity_main_expand" />

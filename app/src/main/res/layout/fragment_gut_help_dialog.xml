@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp">
+
+    <!--android:id="@+id/edit_name"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:orientation="vertical">-->
+
+
+    <TextView
+        android:id="@+id/lbl_color_yes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gut_ok"
+        android:gravity="center"
+        android:background="@color/app_color_gut_ok"
+        android:textColor="@color/app_color_gut_default_text_color"
+        />
+
+    <TextView
+        android:id="@+id/lbl_color_maybe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gut_maybe"
+        android:gravity="center"
+        android:background="@color/app_color_gut_maybe"
+        android:textColor="@color/app_color_gut_default_text_color"
+        />
+
+    <TextView
+        android:id="@+id/lbl_color_no"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gut_no"
+        android:gravity="center"
+        android:background="@color/app_color_gut_no"
+        android:textColor="@color/app_color_gut_no_text_color"
+        />
+
+</LinearLayout>

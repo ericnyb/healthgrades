@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="searchViewStyle">@style/AppTheme.SearchView</item>
+        <item name="android:editTextColor">@android:color/black</item>
+        <!--This sets context menu to go over the actionbar instead of on top-->
+        <item name="android:windowActionModeOverlay">true</item>
+        <!--<item name="android:background">@color/Wheat</item>-->
+        <!--<item name="android:windowBackground">@color/Wheat</item>-->
+        <!--<item name="android:colorBackground">@color/Wheat</item>-->
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_action_search</item>
+    </style>
+
+
+
+    <style name="Base_TextView" >
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:height">25dp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:background">@color/LightYellow</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:onClick">mainTextClickHandler</item>
+    </style>
+
+    <!--Used in our custom listview-->
+    <style name="Base_TextView_Items" >
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!--Used in our custom listview header-->
+    <style name="Base_TextView_Items.style_header">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/Blue</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:onClick">headerClicked</item>
+    </style>
+
+
+
+</resources>

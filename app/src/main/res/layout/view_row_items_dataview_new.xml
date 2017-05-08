@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/data_layout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:onClick="onClickItemLayout">
+
+    <LinearLayout
+        android:id="@+id/linerTop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+       >
+
+        <TextView
+            android:id="@+id/txt_dba"
+            style="@style/Base_TextView_Items"
+            android:layout_weight="1.75"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <TextView
+            style="@style/Base_TextView_Items"
+            android:id="@+id/txt_ins_date"
+            android:layout_weight=".60"
+            android:text="Inspection" />
+
+        <TextView
+            style="@style/Base_TextView_Items"
+            android:id="@+id/txt_score"
+            android:layout_weight=".55"
+            android:text="59"
+            android:gravity="end"
+            android:layout_marginRight="15sp"
+            android:layout_marginLeft="-25sp" />
+
+        <TextView
+            style="@style/Base_TextView_Items"
+            android:id="@+id/txt_grade"
+            android:layout_weight="1"
+            android:text="A" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/viewitems_bottomrow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_address"
+            android:gravity="left"
+            android:layout_weight=".73"
+            android:textSize="10sp"
+            android:textColor="@color/Black"
+            android:text="More data"
+            android:ellipsize="end"/>
+
+        <!--<TextView-->
+            <!--android:layout_width="0sp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/txt_pro_grade"-->
+            <!--android:textSize="10sp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight=".10"-->
+            <!--android:textColor="@color/Black"-->
+            <!--android:text="A"-->
+            <!--/>-->
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_phone"
+            android:textSize="10sp"
+            android:layout_weight=".27"
+            android:textColor="@color/Black"
+            android:text="More data"
+            android:onClick="onClickPhoneTextView"/>
+    </LinearLayout>
+</LinearLayout>

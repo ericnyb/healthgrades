@@ -1,0 +1,103 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item android:id="@+id/action_search"
+        android:title="@string/search_menu_title"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+    <!-- menu group -->
+    <group android:id="@+id/group_filters">
+
+    <item android:id="@+id/Filter"
+        android:title="@string/m_filter"
+        android:orderInCategory="110"
+        app:showAsAction="never|withText" />
+
+
+    <item android:id="@+id/Filter_Add"
+        android:title="@string/m_filter_add"
+        android:orderInCategory="120"
+        app:showAsAction="never|withText" />
+    </group>
+
+    <!--<item android:id="@+id/Sep_2"-->
+        <!--android:title="@string/separator"-->
+        <!--android:orderInCategory="121"-->
+        <!--app:showAsAction="never" />-->
+
+    <group android:id="@+id/group_filters2">
+    <item android:id="@+id/Violation_Flagger"
+        android:title="@string/violation_flagger"
+        android:orderInCategory="130"
+        app:showAsAction="never|withText" />
+
+    <!--<item android:id="@+id/Sep_3"-->
+        <!--android:title="@string/separator"-->
+        <!--android:orderInCategory="131"-->
+        <!--app:showAsAction="never" />-->
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/m_action_settings"
+        android:orderInCategory="140"
+        app:showAsAction="never|withText" />
+
+    </group>
+
+    <item android:id="@+id/Sep_4"
+        android:title="@string/separator"
+        android:orderInCategory="141"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/mission_help"
+        android:title="@string/m_mission_help"
+        android:orderInCategory="142"
+        app:showAsAction="never" />
+
+
+    <item android:id="@+id/disclaimer_help"
+        android:title="@string/m_disclaimer_help"
+        android:orderInCategory="145"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/contact_feedback_help"
+        android:title="@string/m_contact_feedback_help"
+        android:orderInCategory="146"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/about_help"
+        android:title="@string/m_about_help"
+        android:orderInCategory="151"
+        app:showAsAction="never" />
+
+    <!--Start of sub menu-->
+    <item android:id="@+id/help_main"
+        android:title="@string/m_help"
+        android:orderInCategory="160"
+        app:showAsAction="never" >
+
+    <menu>
+        <item android:id="@+id/help_help"
+            android:title="@string/m_help_overview"
+            android:orderInCategory="162"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/features_help"
+            android:title="@string/m_features"
+            android:orderInCategory="163"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/search_help"
+            android:title="@string/m_search_help"
+            android:orderInCategory="164"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/links_help"
+            android:title="@string/m_links_help"
+            android:orderInCategory="166"
+            app:showAsAction="never" />
+    </menu>
+</item>
+
+    </menu>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="help_gut_html">
+ <![CDATA[
+<p><b>
+<font color=\'red\'>Gut Feeling Disclaimer: This is a subjective assessment. You should use your own judgement when viewing the data.</font>
+</b>
+</p>
+<p>
+The gut feeling is either OK (Green),MAYBE (Yellow) or NO(Red).<br/><br/>
+There are several factors that go into the Gut Feeling, but the <b>last inspection</b> is given most weight.<br/><br/>
+Some quick logic used:<br/>
+A new restaurant never given a grade gets a MAYBE at best. If they have an initial score that would earn an A,
+the Gut Feeling will still be a MAYBE. If the score is in the B range they will get a MAYBE, and if it would have earned a
+C it gets a NO.<br/><br/>
+If the last inspection score was in the A range, but the restaurant was closed by the DOHMH within the last year, or they had a C grade
+within the last year, they will get a MAYBE. If neither of those is true it will get an OK<br/><br/>
+
+If the last inspection score was in the B range they will get a MAYBE.<br/><br/>
+</p>
+ ]]>
+
+ </string>
+</resources>

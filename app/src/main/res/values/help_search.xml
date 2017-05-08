@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="search_help_html">
+ <![CDATA[
+<b>To make search screen the default:</b><br/>
+On the home screen menu, go into settings.
+<p>
+<b>Searching can be done several ways:</b><br/>
+Note: If you are not looking for a particular place, but for places close by, you should use the filter Current Zip Code, and then from the main report menu
+choose All Restaurants from the General Reports section <br/>
+</p>
+<p>
+1)By name - your best bet is to type in as much of the name as you know, and use the \"Containing\" option. If too many results get returned,
+ and you know how the name starts, then you can use the "Starts With" option.
+</p>
+<p>
+2)By building number - generally the first information you see on a building\'s door or awning. This is a little tricky,
+depending on the borough. In Queens a building number can be 32-47. The data
+does not have any hyphens in addresses, so you would need to enter 3247.<br/>
+</p>
+<p>
+3)By street name - often <b>not</b> listed on the building\s door or awning. This is also tricky - it is often preceded by West or East.
+ And west and east are expressed in different formats (like west or W). Your best bet is to use the \"Containing\" option and just use a number or name of the street.<br/>
+ Examples: For restaurants on West 79th St you would just use 79. The results then can be sorted by zip code to help pinpoint them.<br/>
+</p>
+<p>
+4)By zip code. You should enter a five digit zip code i.e. 10023, but can enter just a part, using contains. If you plan on searching by this zip code often, it is probably better to create a new filter with that zip code.<br/>
+<p/>
+<p>
+5)By phone number. No hyphens are allowed! Your best bet is to use the \"Containing\" option and use the first 3 or the last four digits. If you want to use the
+ entire number (without area code) just enter it with consecutive digits. i.e. 555-1234 as 5551234<br/>
+<p/>
+6)By Cuisine - there are 2 ways to search.<br/><br/>
+1) Use the search screen<br/>
+This always searches using \"Containing\" because of the way the data is stored. You can enter a type of cuisine you are interested in.
+Cuisine descriptions may not be what you expect , so this method may not be so accurate.<br/><br/>
+2) Run a report from General data on cuisines.<br/>
+This second method is probably better - you get a list of all legitimate cuisines, so you will get results back.
+After report runs, press the cuisine you are interested in to see restaurants.
+<p/>
+ ]]>
+ </string>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/restaurant_header_layout_top"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White">
+        <!--android:background="@color/Red"-->
+
+
+    <TextView
+        android:id="@+id/textViewRestaurantName"
+        android:textColor="@color/Blue"
+        android:layout_width="0dp"
+        android:layout_weight=".6"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:gravity="left"
+        android:singleLine="true"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/textViewRestaurantPhone"
+        android:textColor="@color/Blue"
+        android:layout_width="0dp"
+        android:layout_weight=".4"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:gravity="right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/restaurant_header_layout_address"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White">
+
+        <TextView
+            android:id="@+id/textViewRestaurantAddress"
+            android:textColor="@color/Blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:gravity="left"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+
+        <TextView
+            android:id="@+id/textViewRestaurantCuisine"
+            android:textColor="@color/Blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cuisine"
+            android:visibility="gone"
+            android:gravity="left"/>
+    </LinearLayout>
+
+
+</LinearLayout>

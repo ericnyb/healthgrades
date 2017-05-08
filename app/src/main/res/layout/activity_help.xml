@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+
+    android:id="@+id/help_layout"
+    tools:context="com.ericbandiero.ratsandmice.activities.HelpActivity">
+
+    <TextView
+        android:id="@+id/lbl_help_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How to Use"
+        android:textColor="@color/Black"
+        android:gravity="center"
+        />
+
+
+    <ScrollView android:id="@+id/textAreaScrollerHelp"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+    <TextView
+        android:id="@+id/lbl_help"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_gut_ok"
+        android:textColor="@color/app_color_gut_default_text_color"
+        />
+
+    </ScrollView>
+
+
+    <!--
+    <TextView
+        android:id="@+id/lbl_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_gut_ok"
+        android:textColor="@color/app_color_gut_default_text_color"
+
+        />
+
+-->
+    <TextView
+        android:id="@+id/lbl_help_link"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Feedback"
+        android:textColor="@color/Black"
+        android:background="@color/yellow"
+        />
+
+</LinearLayout>

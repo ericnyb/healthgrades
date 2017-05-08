@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Used for column headings-->
+    <ListView
+        android:id="@+id/listViewMainHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textmainlabels"
+        />
+
+    <!--Used for the data-->
+    <ListView
+    android:id="@+id/listViewMainData"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/listViewMainHeader"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+     />
+</merge>
+    <!--tools:showIn="@layout/activity_dataview"-->
+    <!--android:layout_below="@+id/textmainlabels"-->

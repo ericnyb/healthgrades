@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/White"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/viewitems_bottomrow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <!--Main screen text for parent report-->
+    <TextView
+        android:id="@+id/txtview_main_screen_report_parent"
+        android:layout_width="0dp"
+        android:layout_weight=".80"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:textColor="@color/Blue"
+        />
+
+        <TextView
+            android:id="@+id/txtview_main_screen_report_more"
+            android:layout_width="0dp"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Violet"
+            android:text="More"
+            />
+
+
+    </LinearLayout>
+    <!--android:background="@color/Bisque"-->
+    <!--android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"-->
+    <!--android:textSize="17dp"-->
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="disclaimer_help_html">
+
+ <![CDATA[
+<b>Disclaimer from the DOHMH (Department of Health and Mental Hygiene) website.</b><br/><br/>
+<font color=\'red\'>The scores presented for recent inspections may not be final. Restaurants are entitled to a hearing to challenge
+citations issued by the Department, and successful challenges may result in a change to the score and/or grade issued
+at the time of the inspection. Some of the scores presented here may reflect inspection results that are being challenged but have not yet been adjudicated; the Department will
+update the information if it changes. Because of revisions to the inspection scoring system, inspections before July 27, 2010 cannot be converted into letter grades.</font><br/>
+=========================<br/>
+<b>Disclaimer from Me</b><br/><br/>
+This application relies on data from DOHMH as per above. The data shown here can only be as good as that data.<br/>
+<b>You should always double check with their web site to get the most up to date information.</b><br/><br/>
+The data provided for use in this app may be a few days old. The app tries to inform you when the data was last updated.
+In addition, the detail page has a help file that explains how the \'Gut Feeling\' is determined. You should use your own judgement!
+ ]]>
+ </string>
+
+</resources>

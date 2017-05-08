@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="features_help_html">
+    <![CDATA[
+<p>
+&#8226Look up a specific restaurant\'s grades and violations history.<br/><br/>
+&#8226Find restaurants that had particular violations.<br/><br/>
+&#8226Search for a restaurant by name, cuisine, address or phone number.*<br/><br/>
+&#8226Create your own reports<br/><br/>
+&#8226Save your favorite restaurants<br/><br/>
+&#8226Apply various location filters<br/><br/>
+&#8226Create your own location filters<br/><br/>
+&#8226See restaurant on a map.<br/><br/>
+&#8226Phone a restaurant.<br/><br/>
+&#8226Run reports showing various aspects about the data.<br/>
+<B>These are just a few of the reports available:</B><br/><br/>
+&#8226See restaurants closed by the NYC Dept of Health on last inspection and year.<br/>
+&#8226See latest inspections.<br/>
+&#8226See all restaurants in a particular zip code or borough.<br/>
+&#8226See all new restaurants. <br/>
+&#8226See a list of cuisines - and then see restaurants with those cuisines.<br/>
+&#8226Various built in violation reports are ready to run.<br/>
+
+<br/>
+*If you are primarily interested in using this as a search tool, you can make the search screen the default
+by going into the setting option in the home screen menu.<br/>
+</p>
+]]>
+</string>
+</resources>

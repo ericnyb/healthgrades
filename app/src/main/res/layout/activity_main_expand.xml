@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/app_layout_back_color"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".activities.MainActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+       >
+    <!--Holds the actual data-->
+
+        <!--android:layout_marginBottom="10dp"-->
+
+        <include layout="@layout/textview_spinner_text" />
+
+        <include layout="@layout/spinner_base"/>
+
+
+        <!--<Spinner-->
+            <!--android:id="@+id/spinner_reports_filter"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="0dp"-->
+            <!--android:paddingLeft="10dp"/>-->
+
+    </LinearLayout>
+
+    <include layout="@layout/report_header_textviews"/>
+
+    <ExpandableListView
+        android:id="@+id/ExpandMainScreenReports"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="10.0sp"
+        android:divider="@color/app_layout_back_color"
+        />
+    <!--android:onClick="onClickReportView"-->
+</LinearLayout>
