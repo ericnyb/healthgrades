@@ -28,15 +28,18 @@ TODO When searching by building starts with isn't good - need to make it exact.
 
 //TODO Need street search
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -116,7 +119,8 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
           if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Saved bundle:"+savedInstanceState.toString());
         }
 
-
+        //We ask here because location can be asked from search as well.
+       askForLocationPermission();
 
         if(!alerted_user_to_install_maps){
             checkIfMapsInstalled();
@@ -950,5 +954,26 @@ if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Getting last i
             UtilsShared.toastIt(AppConstant.getApplicationContextMain(),"Both fields must be filled in!",Toast.LENGTH_SHORT);
         }
         //TODO Give an error message
+    }
+    private void askForLocationPermission(){
+        //Check for permissions
+        final String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("To use the 'Current Zip Code' filter you will need to allow location permission access.");
+                builder.setTitle("Location Services");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ActivityCompat.requestPermissions(MainActivity.this, permissions, 0);
+                    }
+                });
+
+                builder.show();
+            } else {
+                ActivityCompat.requestPermissions(this, permissions, 0);
+            }
+        }
     }
 }
