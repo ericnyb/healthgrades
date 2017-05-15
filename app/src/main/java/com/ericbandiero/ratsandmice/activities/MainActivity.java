@@ -112,6 +112,7 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fetchMessages=true;
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState!=null){
