@@ -23,7 +23,7 @@ package com.ericbandiero.ratsandmice.activities;
 /*
 TODO When searching by building starts with isn't good - need to make it exact.
     i.e. if the building is 7 cornelia you can't just find 7,it brings 77, 709,72, etc.
-      can't use a space - then notjing comes back.
+      can't use a space - then nothing comes back.
 */
 
 //TODO Need street search
@@ -56,6 +56,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ericbandiero.librarymain.UtilsShared;
+import com.ericbandiero.myframework.Utility;
 import com.ericbandiero.ratsandmice.AppConstant;
 import com.ericbandiero.ratsandmice.AppUtility;
 import com.ericbandiero.ratsandmice.DataProvider;
@@ -63,7 +64,6 @@ import com.ericbandiero.ratsandmice.HealthDataMainReceiver;
 import com.ericbandiero.ratsandmice.LocationGetter;
 import com.ericbandiero.ratsandmice.PreferenceUtility;
 import com.ericbandiero.ratsandmice.R;
-import com.ericbandiero.ratsandmice.ReportFieldBuilder;
 import com.ericbandiero.ratsandmice.Reports;
 import com.ericbandiero.ratsandmice.SettingsActivity;
 import com.ericbandiero.ratsandmice.adapters.MainActivityExpandAdapter;
@@ -82,7 +82,6 @@ import java.util.Set;
 
 import healthdeptdata.HealthDataFilter;
 import healthdeptdata.HealthDataRestaurants;
-import com.ericbandiero.myframework.Utility;
 
 public class MainActivity extends ParentActivity implements ISetUpData,AdapterView.OnItemSelectedListener, Serializable {
 
@@ -113,6 +112,7 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fetchMessages=true;
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState!=null){

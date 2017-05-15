@@ -10,6 +10,7 @@ import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -134,7 +135,7 @@ public class AppUtility {
         }
     }
 
-    public static void setUpFilterGeographySpinner(final ActionBarActivity actionBarActivity, Spinner spinner) {
+    public static void setUpFilterGeographySpinner(final AppCompatActivity appCompatActivity, Spinner spinner) {
     //TODO Need to set filter clause for custom zip filter
         List<FiltersByLocation> userFilters=new ArrayList<>();
         List<HealthDataFilter> allFilters=new ArrayList<>();
@@ -148,27 +149,27 @@ public class AppUtility {
         hideFilters(allFilters);
 
         //System.out.println("Users filter:"+userFilters.toString());
-        final ArrayAdapter<String> adapter = new ArrayAdapter(actionBarActivity, android.R.layout.simple_spinner_item, allFilters);
+        final ArrayAdapter<String> adapter = new ArrayAdapter(appCompatActivity, android.R.layout.simple_spinner_item, allFilters);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinnerFilters = spinner;
         spinnerFilters.setAdapter(adapter);
 
-        if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","Activity name:"+actionBarActivity.getClass().getName());
+        if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","Activity name:"+appCompatActivity.getClass().getName());
 
         spinnerFilters.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                                      @Override
                                                      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                                                          //We only do this is MainActivity - if in search the load will happen on MainActivity return resume
-                                                         if(actionBarActivity instanceof MainActivity){
+                                                         if(appCompatActivity instanceof MainActivity){
                                                              if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","action is mainactivity");
-                                                             ((MainActivity)actionBarActivity).loadReportsData();
-                                                             // ((MainActivity)actionBarActivity).removeMenuItem();
+                                                             ((MainActivity)appCompatActivity).loadReportsData();
+                                                             // ((MainActivity)appCompatActivity).removeMenuItem();
                                                          }
 
-                                                         onItemSelectedAction(parent, position, actionBarActivity);
-                                                         if (actionBarActivity instanceof IListenToItemSelected) {
-                                                             ((IListenToItemSelected) actionBarActivity).itemSelectedListenCustom(parent);
+                                                         onItemSelectedAction(parent, position, appCompatActivity);
+                                                         if (appCompatActivity instanceof IListenToItemSelected) {
+                                                             ((IListenToItemSelected) appCompatActivity).itemSelectedListenCustom(parent);
                                                          }
                                                      }
 
@@ -180,8 +181,8 @@ public class AppUtility {
         );
 
         //spinnerFilters.getAdapter().get
-        spinnerFilters.setSelection(getLastFilterInDataProvider(actionBarActivity));
-        AppUtility.setLastFilterInDataProvider(actionBarActivity.getApplicationContext());
+        spinnerFilters.setSelection(getLastFilterInDataProvider(appCompatActivity));
+        AppUtility.setLastFilterInDataProvider(appCompatActivity.getApplicationContext());
     }
 
     private static void hideFilters(List<HealthDataFilter> allFilters) {
@@ -257,7 +258,7 @@ public class AppUtility {
         return createWhereForZipFilter((HashSet)set);
     }
 
-    private static void onItemSelectedAction(AdapterView<?> parent, int position, ActionBarActivity actionBarActivity) {
+    private static void onItemSelectedAction(AdapterView<?> parent, int position, AppCompatActivity actionBarActivity) {
         //adapter.notifyDataSetChanged();
         //This only changes the color of the selected item. Keeps dropdowns the same.
         if (parent.getChildAt(0) != null) {
@@ -269,7 +270,7 @@ public class AppUtility {
     }
 
 
-    private static int getLastFilterInDataProvider(ActionBarActivity actionBarActivity) {
+    private static int getLastFilterInDataProvider(AppCompatActivity actionBarActivity) {
         //getAllFilters returns an unmodifiable collection - we put it in new list.
 
 
