@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.ericbandiero.librarymain.Lib_Base_ActionBarActivity;
 import com.ericbandiero.ratsandmice.AppConstant;
 import com.ericbandiero.ratsandmice.HealthDataMainReceiver;
 import com.ericbandiero.ratsandmice.R;
@@ -15,7 +16,7 @@ import com.ericbandiero.ratsandmice.R;
 /**
  * Created by ${"Eric Bandiero"} on 4/3/2016.
  */
-public class ParentActivity extends ActionBarActivity{
+public class ParentActivity extends Lib_Base_ActionBarActivity{
     protected static ProgressDialog progressDialog;
     protected TextView textViewHeader;
     protected TextView textViewLabels;
