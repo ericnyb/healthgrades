@@ -603,9 +603,6 @@ public class DataProvider extends IntentService {
         return stringIntegerMap;
     }
 
-    public static void setStringIntegerMap(Map<String, Integer> stringIntegerMap) {
-       stringIntegerMap = stringIntegerMap;
-    }
 
     public static List<Inspections> getListDataSet() {
         return listDataSet;

@@ -58,13 +58,13 @@ public class AppUtility {
     private static Set<String> lastKnownZipCode;
 
 
-    public static void inspectionBuildAddress(Inspections inspect, TextView textview, boolean useAbreviatedBoro) {
+    public static void inspectionBuildAddress(Inspections inspect, TextView textview, boolean useAbbreviatedBoro) {
 
         //Ignore this for now
-        useAbreviatedBoro = false;
+        useAbbreviatedBoro = false;
 
         textview.setText(inspect.getBuilding() + " " + inspect.getStreet()
-                + (inspect.getBoro() == null ? "" : "," + (useAbreviatedBoro ? AppUtility.getAbbreviatedBoro(inspect.getBoro()) : inspect.getBoro()))
+                + (inspect.getBoro() == null ? "" : "," + (useAbbreviatedBoro ? AppUtility.getAbbreviatedBoro(inspect.getBoro()) : inspect.getBoro()))
                 + (inspect.getZipcode() == null ? "" : "," + inspect.getZipcode()));
     }
 
@@ -90,7 +90,6 @@ public class AppUtility {
 
     public static void main(String[] args) {
         List<Reports> repHeader = new ArrayList<>();
-        ;
         HashMap<Reports, List<Reports>> repChildren = new HashMap<>();
 
 
