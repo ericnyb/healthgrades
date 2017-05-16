@@ -34,7 +34,7 @@ public class LocationGetter {
 
     private static final String MOVING = "moving";
 
-    public static int PERMISSION_FINE_REQUEST_CODE=5;
+    //public static int PERMISSION_FINE_REQUEST_CODE=5;
 
 
     private static LocationListener locationListener;
@@ -49,8 +49,8 @@ public class LocationGetter {
 
     private static String bestProvider;
 
-    private static String PERMISSION_MESSAGE="Location permission needs to be granted to use the filter 'Current Zip Code'. You can go into Device settings->App->This app-> and Permissions";
-    private static String PERMISSION_TITLE="Location Permission Required";
+    private static final String PERMISSION_MESSAGE="Location permission needs to be granted to use the filter 'Current Zip Code'. You can go into Device settings->App->This app-> and Permissions";
+    private static final String PERMISSION_TITLE="Location Permission Required";
 
 
     private static boolean isLocationEnabled() {
@@ -133,7 +133,7 @@ public class LocationGetter {
 
                 Bundle bundle = lastKnownLocation.getExtras();
 
-                String travelState = bundle.get("travelState") == null ? "n/a" : bundle.get("travelState").toString().toLowerCase();
+                @SuppressWarnings("ConstantConditions") String travelState = (bundle.get("travelState") == null) ? "n/a" : bundle.get("travelState").toString().toLowerCase();
 
                 if (travelState.toLowerCase().equals(MOVING)) {
                     if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","use is moving...");
@@ -320,7 +320,7 @@ public class LocationGetter {
 
     private static class LocationListenerCustom implements android.location.LocationListener {
 
-        Context context2;
+        final Context context2;
 
         public LocationListenerCustom(Context context) {
             context2=context;
