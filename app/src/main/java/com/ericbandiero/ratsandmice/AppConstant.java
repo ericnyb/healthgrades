@@ -3,6 +3,7 @@ package com.ericbandiero.ratsandmice;
 import android.content.Context;
 
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 /**
  * Created by ${"Eric Bandiero"} on 4/21/2016.
@@ -20,7 +21,7 @@ public class AppConstant {
     public static final String LAST_SORT_ORDER = "last sort order";
     public static final String PROCESS_RESPONSE = "com.ericbandiero.intent.action.PROCESS_RESPONSE";
     public static final String ERROR_GETTING_DATA="Error getting data.";
-    public static final SimpleDateFormat DATE_FORMAT_HEADER = new SimpleDateFormat("MM-dd-yy");
+    public static final SimpleDateFormat DATE_FORMAT_HEADER = new SimpleDateFormat("MM-dd-yy", Locale.US);
     public static final String HEADER_DATE = "01-01-18";
     public static final String GETTING_DATA = "Getting data...";
     public static final String RADIO_MATCH_SELECTED = "radio match selected";

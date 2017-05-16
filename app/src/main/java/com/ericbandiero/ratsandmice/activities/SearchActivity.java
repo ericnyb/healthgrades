@@ -248,10 +248,6 @@ public class SearchActivity extends ParentActivity implements ISetUpData, Adapte
         editor.apply();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
 
 
     //    /**

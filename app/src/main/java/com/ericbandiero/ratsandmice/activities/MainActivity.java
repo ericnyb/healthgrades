@@ -892,11 +892,13 @@ if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Getting last i
         runReports(r);
     }
 
+/*
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+*/
 
     private void onSaveDataDialog(String userReportName, String zipCodes) {
         //throw new UnsupportedOperationException("Not yet ready!");
