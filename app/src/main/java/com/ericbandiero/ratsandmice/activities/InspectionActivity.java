@@ -6,15 +6,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -22,7 +18,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -625,7 +620,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
                 dialog.show();
                 break;
             case R.id.context_map_it:
-                if (AppUtility.isMapProviderInstalled == false) {
+                if (!AppUtility.isMapProviderInstalled) {
                     UtilsShared.toastIt(AppConstant.getApplicationContextMain(),"Google maps is not installed - cannot show map!", Toast.LENGTH_LONG);
                     return true;
                 }
@@ -824,7 +819,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
         switch (item.getItemId()) {
             case R.id.context_map_it:
-                if (AppUtility.isMapProviderInstalled==false){
+                if (!AppUtility.isMapProviderInstalled){
                     UtilsShared.toastIt(AppConstant.getApplicationContextMain(),"Google maps is not installed - cannot show map!", Toast.LENGTH_LONG);
                     return true;
                 }

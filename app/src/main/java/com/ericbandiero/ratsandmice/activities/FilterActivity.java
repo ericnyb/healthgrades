@@ -16,9 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ericbandiero.librarymain.UtilsShared;
 import com.ericbandiero.ratsandmice.AppConstant;
-import com.ericbandiero.ratsandmice.AppUtility;
 import com.ericbandiero.ratsandmice.DataProvider;
 import com.ericbandiero.ratsandmice.PreferenceUtility;
 import com.ericbandiero.ratsandmice.R;
@@ -163,18 +161,6 @@ public class FilterActivity extends ParentActivity implements AdapterView.OnItem
             }
             PreferenceUtility.saveUserHideFilterChoices(hideFilters);
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-
     }
 
     @Override

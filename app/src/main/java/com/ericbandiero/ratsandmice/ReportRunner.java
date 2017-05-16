@@ -8,7 +8,6 @@ import android.util.Log;
 import android.widget.Spinner;
 
 import com.ericbandiero.ratsandmice.activities.DataViewerActivity;
-import com.ericbandiero.ratsandmice.activities.MainActivity;
 import com.ericbandiero.ratsandmice.activities.ViolationsActivity;
 
 /**

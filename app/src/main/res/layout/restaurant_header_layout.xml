@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:gravity="left"
-        android:singleLine="true"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/textViewRestaurantPhone"
@@ -48,8 +48,8 @@
             android:layout_height="wrap_content"
             android:text="Address"
             android:gravity="left"
-            android:singleLine="true"
-            android:ellipsize="end"/>
+            android:ellipsize="end"
+            android:maxLines="1"/>
 
         <!--android:layout_width="0dp"-->
         <!--android:layout_weight="1"-->

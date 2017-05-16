@@ -434,7 +434,7 @@ public class InspectionExpandAdapter extends BaseExpandableListAdapter {
     public void setMarkViolations(IMarkable markViolations) {
         if (AppConstant.DEBUG) Log.i(this.getClass().getSimpleName()+">","Hitting the mark");
         this.markViolations = markViolations;
-        if (headerRecord==false) {
+        if (!headerRecord) {
             listOfMarkerHits=markViolations.markData(_listDataHeader,_mapChildData);
         }
     }

@@ -1,7 +1,6 @@
 package com.ericbandiero.ratsandmice.interfaces;
 
 import java.util.List;
-import java.util.Map;
 import java.util.SortedMap;
 
 import healthdeptdata.Inspections;
