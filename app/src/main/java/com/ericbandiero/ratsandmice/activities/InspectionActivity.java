@@ -11,6 +11,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -54,21 +55,18 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
     private IntentFilter filter;
     private TextView textViewHeader;
 
-    private List<Inspections> dataListLastInspection = new ArrayList<>();
+    private final List<Inspections> dataListLastInspection = new ArrayList<>();
 
     //UI
-    TextView textViewRestaurantName;
-    TextView textViewRestaurantPhone;
-    TextView textViewRestaurantAddress;
-    TextView textViewRestaurantCuisine;
-    TextView textGutFeeling;
+    private TextView textViewRestaurantName;
+    private TextView textViewRestaurantPhone;
+    private TextView textViewRestaurantAddress;
+    private TextView textViewRestaurantCuisine;
+    private TextView textGutFeeling;
 
-    //we will get this from xml setting
-    String defaultGutFeelingText;
+    private final List<Inspections> dataList = new ArrayList<>();
 
-    private List<Inspections> dataList = new ArrayList<>();
-
-    private List<String> listOfInspectionClosures = new ArrayList<>();
+    private final List<String> listOfInspectionClosures = new ArrayList<>();
 
     //New for expandable listView
     private InspectionExpandAdapter inspectionExpandAdapterData;
@@ -82,8 +80,6 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
     private List<Inspections> listInspectionByDate = new ArrayList<>();
     private SortedMap<Inspections, List<Inspections>> sortedMapChildren;
 
-
-    private Reports reportLastRun;
 
     //Sent in as extras
     private String camis;
@@ -104,12 +100,6 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
     private DataAnalyzerSingleCamis dataAnalyzerSingleCamis;
 
-    //Menu item for favorites
-    Menu menuFavorite;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,15 +118,15 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
         //We will change this color based on our analytics
         textGutFeeling.setBackgroundColor(Color.WHITE);
-        defaultGutFeelingText =textGutFeeling.getText().toString();
-        gutFeelingDefaultTextColor =getResources().getColor(R.color.app_color_gut_default_text_color);
-        gutFeelingNoTextColor=getResources().getColor(R.color.app_color_gut_no_text_color);
+        //String defaultGutFeelingText = textGutFeeling.getText().toString();
+        gutFeelingDefaultTextColor= ContextCompat.getColor(this,R.color.app_color_gut_default_text_color);
+        gutFeelingNoTextColor=ContextCompat.getColor(this,R.color.app_color_gut_no_text_color);
 
 
-        favorite_selected_color=getResources().getColor(R.color.app_color_favorite_is_true);
-        favorite_default_color=getResources().getColor(R.color.app_color_favorite_is_false);
+        favorite_selected_color=ContextCompat.getColor(this,R.color.app_color_favorite_is_true);
+        favorite_default_color=ContextCompat.getColor(this,R.color.app_color_favorite_is_false);
 
-        reportLastRun = Reports.getLastReportRun();
+      //  Reports reportLastRun = Reports.getLastReportRun();
 
 //        if (AppConfig.DEBUG)
 //            Log.i(this.getClass().getSimpleName() + ">", "Last report run information:" + Reports.getLastReportRun().toString());
@@ -181,9 +171,9 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         textViewHeader = (TextView) findViewById(R.id.inspection_header_text);
         textViewHeader.setText("Press inspection line for details.");
 
-        colorOk = getResources().getColor(R.color.app_color_gut_ok);
-        colorNo = getResources().getColor(R.color.app_color_gut_no);
-        colorMaybe = getResources().getColor(R.color.app_color_gut_maybe);
+        colorOk = ContextCompat.getColor(this,R.color.app_color_gut_ok);
+        colorNo = ContextCompat.getColor(this,R.color.app_color_gut_no);
+        colorMaybe = ContextCompat.getColor(this,R.color.app_color_gut_maybe);
 
 
         //=====This tells what broadcasts we want to receive.
@@ -204,22 +194,13 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
             setUpData();
         }
 
-        //Hack - we want to run this ourselves for quick debug. See mainactivuty as well.
+        //Hack - we want to run this ourselves for quick debug. See mainActivity as well.
         if (AppConstant.TEMP_HACK) {
             Intent serviceToRun = new Intent(this, DataProvider.class);
             serviceToRun.putExtra("DataToGet", "CAMIS");
             serviceToRun.putExtra("CAMIS", "50006110");
             this.startService(serviceToRun);
         }
-    }
-
-
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
     }
 
     /**
@@ -258,12 +239,16 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         return super.onPrepareOptionsMenu(menu);
     }
 
+    /*
     private void setMenuFavoriteColor(int color){
 
 //        Drawable icon = ;
 //        icon.mutate().setColorFilter( getResources().getColor(R.color.Pink), PorterDuff.Mode.MULTIPLY );
 //        menuFavorite.setMenuFavororiteColor(getResources().getColor(R.color.Pink));
     }
+    */
+
+
     //This will be called by receiver to handle data to UI
     @Override
     public synchronized void setUpData() {
@@ -273,7 +258,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         }
 
         if (AppConstant.DEBUG)
-            Log.i(this.getClass().getSimpleName() + ">", "Data Provider listdetaildataset size:" + DataProvider.getListDetailDataSet().size());
+            Log.i(this.getClass().getSimpleName() + ">", "Data Provider listDetailDataSet size:" + DataProvider.getListDetailDataSet().size());
 
 
         //Clear - we want to start fresh
@@ -329,7 +314,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         // if (AppConfig.DEBUG) Log.i(this.getClass().getSimpleName()+">","Here");
         // mainDataArrayAdapter.notifyDataSetChanged();
 
-        List<Inspections> listOfInspectionClosures1 = dataAnalyzerSingleCamis.getListOfInspectionClosures();
+        //List<Inspections> listOfInspectionClosures1 = dataAnalyzerSingleCamis.getListOfInspectionClosures();
 
         for (Inspections inspections1 : dataList) {
             listOfInspectionClosures.add(inspections1.getViolation_description() != null ? inspections1.getViolation_description() : "N/A");
@@ -344,11 +329,11 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
         inspectionExpandAdapterColumns = new InspectionExpandAdapter(this, null, null, true);
 
-        String reportName="";
-
-        if(Reports.getLastReportRun()!=null){
-            reportName=Reports.getLastReportRun().getReportName();
-        }
+//        String reportName="";
+//
+//        if(Reports.getLastReportRun()!=null){
+//            reportName=Reports.getLastReportRun().getReportName();
+//        }
 
         if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Last report run:"+ Reports.getLastReportRun().toString());
 
@@ -422,12 +407,9 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         analyzeDataForGutFeeling();
         findReportMetrics();
 
-        if (1 == 1) {
-            return;
-        }
 
         // adapter_inspection_header.notifyDataSetChanged();
-        StringBuilder stringBuilder = new StringBuilder();
+  //      StringBuilder stringBuilder = new StringBuilder();
 
 //            stringBuilder.append("Name:" + dba);
 //            stringBuilder.append(DataViewerActivity.NEWLINE);
@@ -437,7 +419,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 //            stringBuilder.append(DataViewerActivity.NEWLINE);
 //            stringBuilder.append("Last graded grade:"+lastGrade);
 //            stringBuilder.append(DataViewerActivity.NEWLINE);
-//            stringBuilder.append("Lastest inspections grade:"+lastInspectionData.getGrade());
+//            stringBuilder.append("Latest inspections grade:"+lastInspectionData.getGrade());
 //            stringBuilder.append(DataViewerActivity.NEWLINE);
 //            stringBuilder.append("Latest score:"+scoreMetrics.getLatestData());
 //            stringBuilder.append(DataViewerActivity.NEWLINE);
@@ -459,15 +441,15 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         // stringBuilder.append(DataViewerActivity.NEWLINE);
 
 
-        stringBuilder.append("No Score inspections - ADMIN");
-        stringBuilder.append(DataViewerActivity.NEWLINE);
+ //       stringBuilder.append("No Score inspections - ADMIN");
+  //      stringBuilder.append(DataViewerActivity.NEWLINE);
 
 //        for (Inspections inspections1 : noScoresAdminData) {
 //            stringBuilder.append(inspections1.getViolation_description());
 //            stringBuilder.append(DataViewerActivity.NEWLINE);
 //        }
 
-        if (AppConstant.DEBUG) Log.i(this.getClass().getSimpleName() + ">", stringBuilder.toString());
+    //    if (AppConstant.DEBUG) Log.i(this.getClass().getSimpleName() + ">", stringBuilder.toString());
 
         //textViewHeader.setText(stringBuilder.toString());
 
@@ -475,7 +457,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
 
     private void findReportMetrics() {
-        //Depending on report we want to hightlight whic inspection it was found in.
+        //Depending on report we want to highlight which inspection it was found in.
         for (Map.Entry<Inspections, List<Inspections>> inspectionsListEntry : sortedMapChildren.entrySet()) {
             if (AppConstant.DEBUG)
                 Log.d(this.getClass().getSimpleName() + ">", inspectionsListEntry.getKey().toString());
@@ -484,7 +466,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         }
 
 
-        //Can we get a textview from the adapter?
+        //Can we get a textView from the adapter?
         Object item = expListView.getAdapter().getItem(0);
         if (AppConstant.DEBUG)
             Log.i(this.getClass().getSimpleName() + ">", "Item is a:" + item.getClass().getName());
@@ -534,6 +516,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
     }
 
+/*
 
     private int gradeColor(Character grade){
         switch (grade){
@@ -546,6 +529,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         }
         return 1;
     }
+*/
 
 
     /*
@@ -553,7 +537,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
  */
     private void prepareListData() {
 
-        listDataHeader = new ArrayList<Inspections>();
+        listDataHeader = new ArrayList<>();
 
 
         //We use this because we need they key (header) to be unique - date will be
@@ -563,10 +547,10 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
         listDataHeader.addAll(listInspectionByDate);
 
 
-        //Add all inspectionby date to this:
+        //Add all inspection by date to this:
 
 
-        Inspections ins1 = new Inspections();
+        //Inspections ins1 = new Inspections();
 
         //We go through the inspection by dates (header)
         for (Inspections inspections : listInspectionByDate) {
@@ -598,7 +582,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_data_inspection, menu);
-        this.menuFavorite=menu;
+        //Menu menuFavorite = menu;
         return true;
     }
 
@@ -682,7 +666,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
                 }
 */
 
-               String phoneNumber=textViewRestaurantPhone.getText().toString();
+               String phoneNumber= (textViewRestaurantPhone.getText() != null) ? textViewRestaurantPhone.getText().toString() : "";
               //  String phoneNumber=("7768066");
 //        View parent = (View)view.getParent().getParent();
 //        TextView txtView=null;
@@ -693,7 +677,7 @@ public class InspectionActivity extends ParentActivity implements ISetUpData,Act
 
 
 
-                if (phoneNumber!=null && phoneNumber.trim().length()>4){
+                if (phoneNumber.trim().length() > 4){
                     String uri = "tel:" +phoneNumber ;
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     intent.setData(Uri.parse(uri));
