@@ -1,9 +1,6 @@
 package com.ericbandiero.ratsandmice;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.support.v7.app.ActionBarActivity;
 
 import com.ericbandiero.ratsandmice.parent.ParentActivity;
 

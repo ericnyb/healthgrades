@@ -16,10 +16,10 @@ package com.ericbandiero.ratsandmice.activities;
 
 //TODO App name change?
 //TODO Help topics
-//TODO check gut feeling genisis bar, szechuan garden
+//TODO check gut feeling genesis bar, szechuan garden
 //TODO Data integrity
 //Data missing by field
-//TODO Filters are help in static list in healthdata restaurants...not so good?
+//TODO Filters are help in static list in health data restaurants...not so good?
 /*
 TODO When searching by building starts with isn't good - need to make it exact.
     i.e. if the building is 7 cornelia you can't just find 7,it brings 77, 709,72, etc.
@@ -40,6 +40,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -75,6 +76,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -85,13 +87,13 @@ import healthdeptdata.HealthDataRestaurants;
 
 public class MainActivity extends ParentActivity implements ISetUpData,AdapterView.OnItemSelectedListener, Serializable {
 
-    public static boolean alerted_user_to_install_maps=false;
+    private static boolean alerted_user_to_install_maps=false;
 
-    private Bundle bundleHoldingParcelReport = new Bundle();
+    private final Bundle bundleHoldingParcelReport = new Bundle();
 
     //New ======================
-    ExpandableListView expListView;
-    private List<Reports> repHeader = new ArrayList<>();
+    private ExpandableListView expListView;
+    private final List<Reports> repHeader = new ArrayList<>();
 
     private final HashMap<Reports, List<Reports>> repChildren = new HashMap<>();
     //=========================
@@ -101,14 +103,14 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
     //Utility class
 
     //Last inspection date
-    TextView textViewLastInspection;
+    private TextView textViewLastInspection;
 
     //Main adapter
     private MainActivityExpandAdapter mainExpandAdapter;
 
     //private LocationListener locationListener;
 
-    Spinner spinnerFilters;
+    private Spinner spinnerFilters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,22 +208,19 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
                         };
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                        builder.setMessage("Delete saved report " + r.getReportName().toString() + "?").setPositiveButton("Yes", dialogClickListener)
+                        builder.setMessage("Delete saved report " + r.getReportName() + "?").setPositiveButton("Yes", dialogClickListener)
                                 .setNegativeButton("No", dialogClickListener).show();
 
                     }
 
                     return true; //true if we consumed the click, false if not
 
-                } else if(itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
+                } else
                     //groupPosition = ExpandableListView.getPackedPositionGroup(id);
                     //do your per-group callback here
-                    return true; //true if we consumed the click, false if not
-
-                } else {
+                    //true if we consumed the click, false if not
                     // null item; we don't consume the click
-                    return false;
-                }
+                    return itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP;
             }});
 
         expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -367,7 +366,7 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
                     }
                 } catch (Exception e) {
                    // e.printStackTrace();
-                    Log.e(this.getClass().getSimpleName()+">","Location getter tossed error:"+e.getMessage().toString());
+                    Log.e(this.getClass().getSimpleName()+">","Location getter tossed error:"+ e.getMessage());
                 }
             }
         }
@@ -434,11 +433,6 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
         context.startService(serviceToRun);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     /**
      * Dispatch onResume() to fragments.  Note that for better inter-operation
      * with older versions of the platform, at the point of this call the
@@ -451,18 +445,12 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
     @Override
     protected void onResume() {
         super.onResume();
-        //We do not have this set as singleinstance in manifest, so we come back here instead of create.
+        //We do not have this set as single instance in manifest, so we come back here instead of create.
         //Would keep us from having to re-create fields.
-        //On issue is getintent always returns the same as first time.
-        //We start this from filteractivity - no way to pass in an extra if singleinstance
+        //On issue is getIntent always returns the same as first time.
+        //We start this from filterActivity - no way to pass in an extra if single instance
 
 
-/*
-
-        Intent intenttest=new Intent(this,TestActivity1.class);
-        startActivity(intenttest);
-
-*/
 
 
         if (AppConstant.DEBUG) Log.i(this.getClass().getSimpleName() + ">", "In resume!");
@@ -471,10 +459,11 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
         DataProvider.getListDataSet().clear();
         DataProvider.getListSearchDataSet().clear();
 
-        //TODO Come back to this one see above comments on singleintance
+        //TODO Come back to this one see above comments on single instance
         //Right now this will always be the case because activity always gets restarted
         if (spinnerFilters.getAdapter()==null) {
             AppUtility.setUpFilterGeographySpinner(this, spinnerFilters);
+            //noinspection StatementWithEmptyBody
             if (spinnerFilters.getSelectedItem()!=null&&spinnerFilters.getSelectedItem().toString().contains(AppConstant.CURRENT_ZIP_CODE_FILTER_NAME)){
                 //LocationGetter.getLocation(this);
             }
@@ -503,13 +492,6 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
 
         loadReportsData();
 
-
-
-
-//        for (String filtername : HealthDataFilter.returnAllFilterNames()) {
-//            System.out.println("filtername = " + filtername);
-//        }
-
     }
 
     public void loadReportsData(){
@@ -526,7 +508,7 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
 
     }
 
-    public void removeMenuItem() {
+    private void removeMenuItem() {
         if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Current selected menu:"+spinnerFilters.getSelectedItem().toString());
         if (!(spinnerFilters.getSelectedItem().toString().contains(AppConstant.CURRENT_ZIP_CODE_FILTER_NAME))) {
 
@@ -596,7 +578,6 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
         }
 
         if (id == R.id.Violation_Flagger) {
-            //goToViolationFlagger();
             Reports r=new Reports(Reports.VIOLATIONS_USER_FLAG_SET,"",Reports.REPORT_ID_GENERIC,false);
             runReports(r);
         }
@@ -637,9 +618,6 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
         }
 */
         return super.onOptionsItemSelected(item);
-    }
-
-    private void goToViolationFlagger() {
     }
 
     private boolean userAddZipFilter() {
@@ -746,24 +724,17 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
         // startActivity(intent);
 
 
-
-        if (Reports.getLastReportRun().getReportName().equals(Reports.VIOLATIONS_USER_CREATE)) {
-            startActivityForResult(intent, ViolationsActivity.REQUEST_CODE);
+        switch (Reports.getLastReportRun().getReportName()) {
+            case Reports.VIOLATIONS_USER_CREATE:
+                startActivityForResult(intent, ViolationsActivity.REQUEST_CODE);
+                break;
+            case Reports.VIOLATIONS_USER_FLAG_SET:
+                startActivityForResult(intent, ViolationsActivity.REQUEST_CODE_VIOLATION_FLAG);
+                break;
+            default:
+                startActivity(intent);
+                break;
         }
-        else if(Reports.getLastReportRun().getReportName().equals(Reports.VIOLATIONS_USER_FLAG_SET)){
-            startActivityForResult(intent, ViolationsActivity.REQUEST_CODE_VIOLATION_FLAG);
-        }
-        else{
-            startActivity(intent);
-        }
-    }
-
-
-    public void onClickReportView(View view) {
-        //  if (AppConfig.DEBUG) Log.i(this.getClass().getSimpleName()+">","Class:"+view.getClass().getSimpleName());
-        //   if (AppConfig.DEBUG) Log.i(this.getClass().getSimpleName()+">","Class parent:"+view.getParent().getClass().getSimpleName());
-        //  if (AppConfig.DEBUG) Log.i(this.getClass().getSimpleName()+">","Clicked:"+((TextView)view).getText());
-//        if (AppConfig.DEBUG) Log.i(this.getClass().getSimpleName()+">","Clicked:"+((ListView)view.getParent()).getPositionForView(view));
     }
 
     /**
@@ -772,7 +743,7 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
      * position is different from the previously selected position or if
      * there was no selected item.</p>
      * <p/>
-     * Impelmenters can call getItemAtPosition(position) if they need to access the
+     * Implementors can call getItemAtPosition(position) if they need to access the
      * data associated with the selected item.
      *
      * @param parent   The AdapterView where the selection happened
@@ -783,8 +754,9 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         //Spinner selection
-        //This only changes the color of the selected item. Keeps dropdowns the same.
-        ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.app_color_spinner_filter_selected_item));
+        //This only changes the color of the selected item. Keeps drop downs the same.
+      //  ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.app_color_spinner_filter_selected_item));
+        ((TextView) parent.getChildAt(0)).setTextColor(ContextCompat.getColor(this,R.color.app_color_spinner_filter_selected_item));
         ((TextView) parent.getChildAt(0)).setTextSize(14);
         if (AppConstant.DEBUG)
             Log.i(this.getClass().getSimpleName() + ">", "Item selected!" + parent.getItemAtPosition(position
@@ -808,9 +780,9 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
 
     /**
      * Called from violations screen for user selected violation.
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * @param requestCode Special code so we know what to look for
+     * @param resultCode Did we have success
+     * @param data Data sent back to use
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -844,7 +816,7 @@ public class MainActivity extends ParentActivity implements ISetUpData,AdapterVi
             if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","requestCode = " + requestCode);
             String [] codes=ViolationsActivity.aViolationCodes;
             if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","codes to save as flagged:"+Arrays.asList(codes).toString());
-            PreferenceUtility.saveUserViolationsToMark(new HashSet<String>(Arrays.asList(codes)));
+            PreferenceUtility.saveUserViolationsToMark(new HashSet<>(Arrays.asList(codes)));
         }
     }
 
@@ -920,17 +892,13 @@ if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Getting last i
         runReports(r);
     }
 
-    /**
-     * Save all appropriate fragment state.
-     *
-     * @param outState
-     */
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
 
-    public void onSaveDataDialog(String userReportName,String zipCodes) {
+    private void onSaveDataDialog(String userReportName, String zipCodes) {
         //throw new UnsupportedOperationException("Not yet ready!");
         if (!userReportName.isEmpty() && !zipCodes.isEmpty()) {
 
@@ -940,13 +908,10 @@ if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","Getting last i
 
             String [] zipArray =zipCodes.split(",");
 
-            for (int i = 0; i < zipArray.length; i++) {
-                String s = zipArray[i];
-                setZipCodes.add(s);
-            }
+            Collections.addAll(setZipCodes, zipArray);
 
             editor.putStringSet(AppConstant.USER_PREF_ZIP_FILTER_PREFIX + userReportName.toUpperCase(), setZipCodes);
-            editor.commit();
+            editor.apply();
             if (AppConstant.DEBUG) Log.d(this.getClass().getSimpleName()+">","setZipCodes.toString() = " + setZipCodes.toString());
             AppUtility.setUpFilterGeographySpinner(this,spinnerFilters);
         }

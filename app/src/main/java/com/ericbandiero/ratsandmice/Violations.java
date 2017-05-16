@@ -2,8 +2,6 @@ package com.ericbandiero.ratsandmice;
 
 import java.util.Comparator;
 
-import healthdeptdata.Inspections;
-
 /**
  * Created by ${"Eric Bandiero"} on 6/3/2016.
  */

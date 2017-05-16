@@ -18,8 +18,6 @@ import com.ericbandiero.librarymain.UtilsShared;
 import com.ericbandiero.ratsandmice.AppConstant;
 import com.ericbandiero.ratsandmice.R;
 
-import com.ericbandiero.myframework.Utility;
-
 public class HelpActivity extends ActionBarActivity {
 
     int helpType=0;
