@@ -165,5 +165,10 @@
     <string name="m_features">Features</string>
     <string name="m_symbols_feeling">Symbols</string>
 
+    <!--USed in violations activity-->
+    <string name="user_violation_create">Select violations to create report from.</string>
+    <string name="user_violations_to_flag">Select violations to flag in detail view.</string>
+    <string name="violations_to_be_marked">Select violations to always be marked in detail screen.</string>
+
 
 </resources>
