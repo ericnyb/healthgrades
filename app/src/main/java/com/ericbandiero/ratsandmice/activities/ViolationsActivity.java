@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -63,17 +64,17 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
 
     private IntentFilter filter;
 
-    List<Inspections> listInspectionViolations = new ArrayList<>();
+    private final List<Inspections> listInspectionViolations = new ArrayList<>();
 
-    ListView listView;
+    private ListView listView;
 
     //This will hold each code fror violation that user selects
-    List<String> listCodes = new ArrayList<>();
+    private final List<String> listCodes = new ArrayList<>();
 
     //List to hold violation codes we want to get
     public static String[] aViolationCodes;
 
-    private List<Inspections> listInspections;
+    //private List<Inspections> listInspections;
 
     //We will use this for other date sets besides violations
     private boolean isViolationReport;
@@ -113,7 +114,9 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
         }
 
         if (Reports.getLastReportRun().getReportName().equals(Reports.META_RESTAURANTS_BY_BORO)|Reports.getLastReportRun().getReportName().equals(Reports.META_RESTAURANTS_BY_FILTER)) {
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+          //  LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            LinearLayout.LayoutParams params =new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
             // params.setMargins(30,10,10,10);
             //params.setMarginStart(padLeft);
             params.gravity = Gravity.CENTER;
@@ -179,11 +182,11 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
         switch (lastReportName) {
             case Reports.VIOLATIONS_USER_CREATE:
                 setTitle("Violations");
-                textViewLabels.setText("Select violations to create report from.");
+                textViewLabels.setText(R.string.user_violation_create);
                 break;
             case Reports.VIOLATIONS_USER_FLAG_SET:
                 setTitle("Violations to Flag");
-                textViewLabels.setText("Select violations to flag in detail view.");
+                textViewLabels.setText(R.string.user_violations_to_flag);
                 break;
             case Reports.META_CUISINES_BY_BORO:
                 setTitle("Cuisines");
@@ -329,7 +332,7 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
 
             Collections.sort(list_violations, Violations.SORT_BY_SELECTED);
 
-            textViewHeader.setText("Select violations to always be marked in detail screen.");
+            textViewHeader.setText(R.string.violations_to_be_marked);
         }
 
 
@@ -400,7 +403,7 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
             listView.setAdapter(new ArrayAdapter(this, R.layout.map_two_text_fields, listDataWrapper) {
 
 
-                int padding=20;
+                final int padding=20;
 
                 //private int layoutResourceId=;
 
@@ -574,7 +577,7 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
                                         float percentOfTotal = ((valueInt / total) * 100.0f);
 
 
-                                        String percent = total==0?"0.00":String.format("%.2f", percentOfTotal);
+                                        String percent = (total == 0) ? "0.00" : String.format(Locale.US, "%.2f", percentOfTotal);
 
                                         String rowText = (StringUtils.rightPad(field, field.length() + (startingPosition - field.length() + (padValue - value.length())), " ") + value) + StringUtils.leftPad(percent, 8) + "%";
 
@@ -618,19 +621,14 @@ public class ViolationsActivity extends ParentActivity implements ISetUpData {
 
     static class ViewHolder {
         public TextView textView;
-        public View divider;
+       // public View divider;
     }
 
     static class ViewHolderCuisines {
         public TextView textView;
-        public View divider;
+        //public View divider;
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
 
     private void getSelectedViolations() {
         SparseBooleanArray sparseArray = listView.getCheckedItemPositions();

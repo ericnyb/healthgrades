@@ -6,25 +6,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -253,13 +245,9 @@ public class SearchActivity extends ParentActivity implements ISetUpData, Adapte
        // editor.putBoolean(RESPECT_FILTER, checkboxRespectFilter.isChecked());
         editor.putString(AppConstant.SEARCH_FIELD_SELECTED, spinnerSearchField.getSelectedItem().toString());
         // Commit the edits!
-        editor.commit();
+        editor.apply();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
 
 
     //    /**

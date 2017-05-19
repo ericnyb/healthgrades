@@ -2,7 +2,6 @@ package com.ericbandiero.ratsandmice;
 
 import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -31,7 +30,7 @@ public class TestData {
 
     }
 
-    public boolean runSplitTest(){
+    private void runSplitTest(){
 
     String zipcodelist="10023,10024,10025a";
 
@@ -51,7 +50,7 @@ public class TestData {
         System.out.println("s = " + s);
         String []newArray = new String[0];
         s.toArray(newArray);
-        return true;
+        return;
     }
 
 

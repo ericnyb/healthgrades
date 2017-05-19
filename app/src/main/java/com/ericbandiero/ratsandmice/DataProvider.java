@@ -11,7 +11,6 @@ import com.ericbandiero.ratsandmice.activities.ViolationsActivity;
 
 import com.sun.jersey.api.client.ClientHandlerException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -604,9 +603,6 @@ public class DataProvider extends IntentService {
         return stringIntegerMap;
     }
 
-    public static void setStringIntegerMap(Map<String, Integer> stringIntegerMap) {
-       stringIntegerMap = stringIntegerMap;
-    }
 
     public static List<Inspections> getListDataSet() {
         return listDataSet;

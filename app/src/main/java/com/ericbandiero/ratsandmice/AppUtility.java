@@ -1,15 +1,12 @@
 package com.ericbandiero.ratsandmice;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -30,9 +27,7 @@ import com.ericbandiero.ratsandmice.interfaces.IListenToItemSelected;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -63,13 +58,13 @@ public class AppUtility {
     private static Set<String> lastKnownZipCode;
 
 
-    public static void inspectionBuildAddress(Inspections inspect, TextView textview, boolean useAbreviatedBoro) {
+    public static void inspectionBuildAddress(Inspections inspect, TextView textview, boolean useAbbreviatedBoro) {
 
         //Ignore this for now
-        useAbreviatedBoro = false;
+        useAbbreviatedBoro = false;
 
         textview.setText(inspect.getBuilding() + " " + inspect.getStreet()
-                + (inspect.getBoro() == null ? "" : "," + (useAbreviatedBoro ? AppUtility.getAbbreviatedBoro(inspect.getBoro()) : inspect.getBoro()))
+                + (inspect.getBoro() == null ? "" : "," + (useAbbreviatedBoro ? AppUtility.getAbbreviatedBoro(inspect.getBoro()) : inspect.getBoro()))
                 + (inspect.getZipcode() == null ? "" : "," + inspect.getZipcode()));
     }
 
@@ -95,7 +90,6 @@ public class AppUtility {
 
     public static void main(String[] args) {
         List<Reports> repHeader = new ArrayList<>();
-        ;
         HashMap<Reports, List<Reports>> repChildren = new HashMap<>();
 
 
@@ -393,10 +387,7 @@ public class AppUtility {
     }
 
     public static boolean checkNetwork(){
-        if (!UtilsShared.checkConnection(AppConstant.getApplicationContextMain())){
-            return false;
-        }
-        return true;
+        return UtilsShared.checkConnection(AppConstant.getApplicationContextMain());
     }
 
     public static void setSavedSortOrder(){

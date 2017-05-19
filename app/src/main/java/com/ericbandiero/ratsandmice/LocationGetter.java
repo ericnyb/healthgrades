@@ -1,7 +1,6 @@
 package com.ericbandiero.ratsandmice;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,9 +15,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.ericbandiero.librarymain.UtilsShared;
 import com.ericbandiero.ratsandmice.activities.DataViewerActivity;
@@ -30,28 +27,30 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * We use this to get the user's location.
  * Created by ${"Eric Bandiero"} on 9/20/2016.
  */
 public class LocationGetter {
 
-    public static final String MOVING = "moving";
+    private static final String MOVING = "moving";
 
-    public static int PERMISSION_FINE_REQUEST_CODE=5;
+    //public static int PERMISSION_FINE_REQUEST_CODE=5;
 
 
     private static LocationListener locationListener;
-    private static Context context;
+   // private static Context context;
     private static LocationManager locationManager;
 
 
     //right now none minute
-    private static final int REQUEST_NEW_UPDATE_ELAPSED_TIME = 1000 * 60 * 1;
+    @SuppressWarnings("PointlessArithmeticExpression")
+    private static final int REQUEST_NEW_UPDATE_ELAPSED_TIME = (1000 * 60) * 1;
     private static final int MAX_NUMBER_OF_ADDRESS = 5;
 
     private static String bestProvider;
 
-    private static String PERMISSION_MESSAGE="Location permission needs to be granted to use the filter 'Current Zip Code'. You can go into Device settings->App->This app-> and Permissions";
-    private static String PERMISSION_TITLE="Location Permission Required";
+    private static final String PERMISSION_MESSAGE="Location permission needs to be granted to use the filter 'Current Zip Code'. You can go into Device settings->App->This app-> and Permissions";
+    private static final String PERMISSION_TITLE="Location Permission Required";
 
 
     private static boolean isLocationEnabled() {
@@ -64,6 +63,7 @@ public class LocationGetter {
             if (AppConstant.DEBUG) Log.d(new Object() {
             }.getClass().getEnclosingClass() + ">", "GPS is enabled.");
         } catch (Exception ex) {
+            if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","Error:"+ex.getMessage());
         }
 
         try {
@@ -71,19 +71,21 @@ public class LocationGetter {
             if (AppConstant.DEBUG) Log.d(new Object() {
             }.getClass().getEnclosingClass() + ">", "Network is enabled.");
         } catch (Exception ex) {
-
+            if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","Error:"+ex.getMessage());
         }
 
+        /*
         if (!gps_enabled && !network_enabled) {
-
             return false;
         }
         return true;
+        */
+        return !(!gps_enabled && !network_enabled);
     }
 
-    public static boolean getLocation(Context p_context) throws Exception {
+    public static boolean getLocation(Context p_context) {
 
-        context = p_context;
+     final Context  context = p_context;
 
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
@@ -97,7 +99,7 @@ public class LocationGetter {
 
         //Location is not enabled - we do nothing unless user turns it on.
         if (!isLocationEnabled()) {
-            showNoLocationDialog();
+            showNoLocationDialog(context);
             return false;
         }
 
@@ -119,7 +121,6 @@ public class LocationGetter {
         if (locationManager.isProviderEnabled(bestProvider)) {
             Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
             if (lastKnownLocation != null) {
-                String lastZipCode = null;
 
                 if (AppConstant.DEBUG) Log.d(new Object() {
                 }.getClass().getEnclosingClass() + ">", "Last known from lat:" + bestProvider + " " + lastKnownLocation.getLatitude());
@@ -132,9 +133,10 @@ public class LocationGetter {
 
                 Bundle bundle = lastKnownLocation.getExtras();
 
-                String travelState =(String) bundle.get("travelState") == null ? "n/a" : bundle.get("travelState").toString().toLowerCase();
+                @SuppressWarnings("ConstantConditions") String travelState = (bundle.get("travelState") == null) ? "n/a" : bundle.get("travelState").toString().toLowerCase();
 
                 if (travelState.toLowerCase().equals(MOVING)) {
+                    if (AppConstant.DEBUG) Log.d(new Object() { }.getClass().getEnclosingClass()+">","use is moving...");
                    // Toast.makeText(context, "Travel state:"+travelState, Toast.LENGTH_LONG).show();
                 }
 
@@ -177,7 +179,7 @@ public class LocationGetter {
                 logSomeData(lastKnownLocation, timeDelta);
 
 
-                //If this is less than one minute we can just use current zip if exists in AppUtility lastknownzipcode
+                //If this is less than one minute we can just use current zip if exists in AppUtility lastKnownZipCode
                 //If more than we continue on to request an update.
                 //We also get a new update if we are moving
                 if ((timeDelta < REQUEST_NEW_UPDATE_ELAPSED_TIME) & (!travelState.equals(MOVING))) {
@@ -197,7 +199,7 @@ public class LocationGetter {
 
 
         //If we reached here then we need to ask for a location update
-        locationListener = new LocationListenerCustom();
+        locationListener = new LocationListenerCustom(context);
 
         //locationManager.requestLocationUpdates(bestProvider, 0, 0, locationListener);
 
@@ -227,7 +229,7 @@ public class LocationGetter {
         thread.start();
 
         try {
-            if (bestProvider.toString().equals(LocationManager.GPS_PROVIDER)) {
+            if (bestProvider.equals(LocationManager.GPS_PROVIDER)) {
                 //AppUtility.toastIt("Using GPS", Toast.LENGTH_SHORT);
                 if (AppConstant.DEBUG) Log.d(new Object() {
                 }.getClass().getEnclosingClass() + ">", "Using GPS!");
@@ -248,7 +250,7 @@ public class LocationGetter {
                 }.getClass().getEnclosingClass() + ">", "Last zip code is empty");
                 Thread.sleep(6000);
             } else {
-                Thread.sleep(bestProvider.toString().equals(LocationManager.GPS_PROVIDER) ? 4000 : 3000);
+                Thread.sleep(bestProvider.equals(LocationManager.GPS_PROVIDER) ? 4000 : 3000);
             }
 
         } catch (InterruptedException e) {
@@ -258,7 +260,7 @@ public class LocationGetter {
         return true;
     }
 
-    public static void logSomeData(Location lastKnownLocation, long timeDelta) {
+    private static void logSomeData(Location lastKnownLocation, long timeDelta) {
         if (AppConstant.DEBUG) Log.d(new Object() {
         }.getClass().getEnclosingClass() + ">", "Time now:" + new Date().getTime());
         if (AppConstant.DEBUG) Log.d(new Object() {
@@ -280,11 +282,11 @@ public class LocationGetter {
         locationManager.removeUpdates(locationListener);
     }
 
-    private static void showNoLocationDialog() {
+    private static void showNoLocationDialog(final Context context) {
         // 1. Instantiate an AlertDialog.Builder with its constructor
-        AlertDialog.Builder builder = new AlertDialog.Builder((Activity) context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-// 2. Chain together various setter methods to set the dialog characteristics
+        // 2. Chain together various setter methods to set the dialog characteristics
         builder.setMessage("Location is turned off!" +
                 DataViewerActivity.NEWLINE +
                 DataViewerActivity.NEWLINE +
@@ -316,7 +318,13 @@ public class LocationGetter {
         dialog.show();
     }
 
-    static class LocationListenerCustom implements android.location.LocationListener {
+    private static class LocationListenerCustom implements android.location.LocationListener {
+
+        final Context context2;
+
+        public LocationListenerCustom(Context context) {
+            context2=context;
+        }
 
         /**
          * Called when the location has changed.
@@ -340,7 +348,7 @@ public class LocationGetter {
             Set<String> zips = new HashSet<>();
 
             //Get a list of Addresses
-            listOfAddresses = AppUtility.getAddressesFromGeoCoder(context, latitude, longitude, MAX_NUMBER_OF_ADDRESS);
+            listOfAddresses = AppUtility.getAddressesFromGeoCoder(context2, latitude, longitude, MAX_NUMBER_OF_ADDRESS);
 
 
             AppUtility.getZipCodesFromAddressList(listOfAddresses, zips);

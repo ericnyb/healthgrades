@@ -2,8 +2,6 @@ package com.ericbandiero.ratsandmice;
 
 import android.util.Log;
 
-import com.ericbandiero.librarymain.UtilsShared;
-
 import java.util.ArrayList;
 import java.util.List;
 

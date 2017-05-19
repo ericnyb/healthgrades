@@ -36,7 +36,7 @@ public class PreferenceUtility {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(a.getApplicationContext());
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(AppConstant.LAST_FILTER_NAME, DataProvider.getHealthDataFilter().getFilterName());
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -58,7 +58,7 @@ public class PreferenceUtility {
         SharedPreferences.Editor editor = preferences.edit();
         //editor.putString(codes, reportName);
         editor.putStringSet(reportName, new HashSet<String>(Arrays.asList(codes)));
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -98,7 +98,7 @@ public class PreferenceUtility {
         SharedPreferences preferences = AppConstant.getApplicationContextMain().getSharedPreferences(category, 0);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
-        editor.commit();
+        editor.apply();
     }
 
     public static String getSharedPreferenceStrings(String category, String key, String value){

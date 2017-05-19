@@ -18,8 +18,8 @@
             android:id="@+id/txt_dba"
             style="@style/Base_TextView_Items"
             android:layout_weight="1.75"
-            android:singleLine="true"
-            android:ellipsize="end" />
+            android:ellipsize="end"
+            android:maxLines="1"/>
 
         <TextView
             style="@style/Base_TextView_Items"

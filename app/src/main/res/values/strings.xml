@@ -165,5 +165,20 @@
     <string name="m_features">Features</string>
     <string name="m_symbols_feeling">Symbols</string>
 
+    <!--USed in violations activity-->
+    <string name="user_violation_create">Select violations to create report from.</string>
+    <string name="user_violations_to_flag">Select violations to flag in detail view.</string>
+    <string name="violations_to_be_marked">Select violations to always be marked in detail screen.</string>
+    <string name="help_title_how_to_use">How to Use</string>
+    <string name="help_title_links">Links</string>
+    <string name="help_title_using_search">Using Search</string>
+    <string name="help_title_gut_feeling_info">Gut Feeling Info</string>
+    <string name="help_title_symbols">Symbols</string>
+    <string name="help_title_mission_statement">Mission Statement</string>
+    <string name="help_title_disclaimer">Disclaimer</string>
+    <string name="help_title_features">Features</string>
+    <string name="help_title_contact">Contact and Feedback</string>
+    <string name="help_title_version">Version: %1$s</string>
+
 
 </resources>

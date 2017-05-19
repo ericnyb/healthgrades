@@ -2,9 +2,8 @@ package com.ericbandiero.ratsandmice.activities;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Html;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
@@ -18,11 +17,9 @@ import com.ericbandiero.librarymain.UtilsShared;
 import com.ericbandiero.ratsandmice.AppConstant;
 import com.ericbandiero.ratsandmice.R;
 
-import com.ericbandiero.myframework.Utility;
+public class HelpActivity extends AppCompatActivity {
 
-public class HelpActivity extends ActionBarActivity {
-
-    int helpType=0;
+    private int helpType=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,69 +51,69 @@ public class HelpActivity extends ActionBarActivity {
 
         if (id==R.id.help_help) {
             setTitle(title);
-            textViewTitle.setText("How to Use");
+            textViewTitle.setText(R.string.help_title_how_to_use);
             //Spanned link=Html.fromHtml(getString(R.string.dohmh_link));
             //textViewHelp.setText(Html.fromHtml(getString(R.string.help)));
 
 
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
         }
 
         if (id==R.id.links_help) {
             setTitle(title);
-            textViewTitle.setText("Links");
+            textViewTitle.setText(R.string.help_title_links);
             //textViewHelp.setText(Html.fromHtml(getString(R.string.quick_help_html)+getString(R.string.dohmh_link)));
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
         }
 
         if (id==R.id.search_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Using Search");
+            textViewTitle.setText(R.string.help_title_using_search);
             //textViewHelp.setText(Html.fromHtml(getString(R.string.help_search_html)));
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
         }
 
         if (id==R.id.gut_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Gut Feeling Info");
-            textViewHelp.setText(Html.fromHtml(getString(R.string.help_gut_html)));
+            textViewTitle.setText(R.string.help_title_gut_feeling_info);
+            textViewHelp.setText(UtilsShared.fromHtml(getString(R.string.help_gut_html)));
         }
 
         if (id==R.id.symbols_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Symbols");
-            textViewHelp.setText(Html.fromHtml(getString(R.string.help_symbols_html)));
+            textViewTitle.setText(R.string.help_title_symbols);
+            textViewHelp.setText(UtilsShared.fromHtml(getString(R.string.help_symbols_html)));
         }
 
         if (id==R.id.mission_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Mission Statement");
-            textViewHelp.setText(Html.fromHtml(getString(R.string.help_mission_html)));
+            textViewTitle.setText(R.string.help_title_mission_statement);
+            textViewHelp.setText(UtilsShared.fromHtml(getString(R.string.help_mission_html)));
         }
 
         if (id==R.id.disclaimer_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Disclaimer");
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewTitle.setText(R.string.help_title_disclaimer);
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
         }
 
         if (id==R.id.features_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Features");
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewTitle.setText(R.string.help_title_features);
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
         }
 
         if (id==R.id.contact_feedback_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Contact and Feedback");
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewTitle.setText(R.string.help_title_contact);
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
 
             textViewLink.setVisibility(View.VISIBLE);
 
@@ -140,9 +137,11 @@ public class HelpActivity extends ActionBarActivity {
         if (id==R.id.about_help) {
             setTitle(title);
             helpType=1;
-            textViewTitle.setText("Version:"+ UtilsShared.getVersion(getApplicationContext()));
+            //textViewTitle.setText(getString(R.string.help_title_version)+ UtilsShared.getVersion(getApplicationContext()));
+            textViewTitle.setText(String.format(getString(R.string.help_title_version),UtilsShared.getVersion(getApplicationContext())));
             textViewTitle.setGravity(Gravity.CENTER);
-            textViewHelp.setText(Html.fromHtml(getString(identifier)));
+         //   textViewHelp.setText(Html.fromHtml(getString(identifier)));
+            textViewHelp.setText(UtilsShared.fromHtml(getString(identifier)));
 
         }
    }

@@ -16,9 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ericbandiero.librarymain.UtilsShared;
 import com.ericbandiero.ratsandmice.AppConstant;
-import com.ericbandiero.ratsandmice.AppUtility;
 import com.ericbandiero.ratsandmice.DataProvider;
 import com.ericbandiero.ratsandmice.PreferenceUtility;
 import com.ericbandiero.ratsandmice.R;
@@ -40,7 +38,7 @@ public class FilterActivity extends ParentActivity implements AdapterView.OnItem
     List<String> filterStrings;
     ListView listView;
     public static String currentFilterString;
-    String currentfiltername;
+    String currentFilterName;
     TextView selection;
     boolean userCancelledChanges=false;
 
@@ -79,10 +77,10 @@ public class FilterActivity extends ParentActivity implements AdapterView.OnItem
 
         //SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 
-        currentfiltername = PreferenceUtility.getDefaultSharedPreferenceStrings(AppConstant.LAST_FILTER_NAME, "NONE");
+        currentFilterName = PreferenceUtility.getDefaultSharedPreferenceStrings(AppConstant.LAST_FILTER_NAME, "NONE");
 
         if (AppConstant.DEBUG)
-            Log.i(this.getClass().getSimpleName() + ">", "Previous filter:" + currentfiltername);
+            Log.i(this.getClass().getSimpleName() + ">", "Previous filter:" + currentFilterName);
 
         currentFilterString = DataProvider.getHealthDataFilter().getFilterName();
 
@@ -108,7 +106,7 @@ public class FilterActivity extends ParentActivity implements AdapterView.OnItem
                 }
                 // System.out.println(textView.getText());
                 /*YOUR CHOICE OF COLOR*/
-                if (currentfiltername.equals(textView.getText())) {
+                if (currentFilterName.equals(textView.getText())) {
                     textView.setTextColor(Color.BLUE);
                 }
                 return view;
@@ -163,18 +161,6 @@ public class FilterActivity extends ParentActivity implements AdapterView.OnItem
             }
             PreferenceUtility.saveUserHideFilterChoices(hideFilters);
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-
     }
 
     @Override
